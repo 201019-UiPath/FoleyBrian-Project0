@@ -9,4 +9,9 @@
     <PackageReference Include="System.Text.Json" Version="4.7.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BrewCrewLib\BrewCrewLib.csproj" />
+    <ProjectReference Include="..\BrewCrewBL\BrewCrewBL.csproj" />
+  </ItemGroup>
+
 </Project>

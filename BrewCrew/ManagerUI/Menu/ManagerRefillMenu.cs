@@ -1,7 +1,11 @@
 namespace ManagerUI.Menu
 {
-    public class ManagerRefillMenu
+    public class ManagerRefillMenu: IMenu
     {
+
+        public void start() {
+            
+        }
         
     }
 }

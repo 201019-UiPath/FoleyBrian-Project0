@@ -1,4 +1,5 @@
 ﻿using System;
+using ManagerUI.Menu;
 
 namespace ManagerUI
 {
@@ -6,7 +7,8 @@ namespace ManagerUI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Manager");
+            ManagerWelcomeMenu menu = new ManagerWelcomeMenu();
+            menu.start();
         }
     }
 }

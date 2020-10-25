@@ -12,13 +12,7 @@ namespace AdminUI.Menu
         private readonly string[] breweryOptions = {"breweryName"};
         private readonly string[] managerOptions = { "breweryManagerfName", "breweryManagerlName", 
         "email", "password"};
-
         private readonly string[] locationOptions = {"state", "city", "address", "zip"};  
-
-        private ManagerBL managerBL = new ManagerBL();
-        private LocationBL locationBL = new LocationBL();
-
-        private BreweryBL breweryBL = new BreweryBL();
 
         public void Start() {
             Dictionary<string, string> breweryAnswers = new Dictionary<string, string>();
@@ -44,17 +38,30 @@ namespace AdminUI.Menu
                 Console.WriteLine($"\nConfirm {option} : {locationAnswers[option]}");
             }
 
+            BrewCrewBL<Location> brewCrewLocationBl = new BrewCrewBL<Location>("location");
             Location location = new Location();
             location.SetLocation(locationAnswers);
-            locationBL.AddLocation(location);
+            brewCrewLocationBl.AddData(location);
+            brewCrewLocationBl = null;
 
+            BrewCrewBL<Manager> brewCrewManagerBl = new BrewCrewBL<Manager>("manager");
             Manager manager = new Manager();
             manager.SetManager(managerAnswers);
-            managerBL.AddManager(manager);
+            brewCrewManagerBl.AddData(manager);
+            brewCrewManagerBl = null;
 
+            BrewCrewBL<Brewery> brewCrewBreweryBl = new BrewCrewBL<Brewery>("brewery");
             Brewery brewery = new Brewery();
             brewery.SetBrewery(breweryAnswers);
-            breweryBL.AddBrewery(brewery);
+            brewCrewBreweryBl.AddData(brewery);
+
+            List<Brewery> listData = brewCrewBreweryBl.GetAllListData();
+            foreach(var item in listData) {
+                Console.WriteLine(item.Id);
+            }
+
+            brewCrewBreweryBl = null;
+            
         }
         private void DisplayWelcomeMessage() {
             Console.WriteLine("Welcome Admin, please enter the brewery information");

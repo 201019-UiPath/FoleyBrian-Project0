@@ -1,6 +1,6 @@
 namespace BrewCrewLib.Users
 {
-    public class Customer
+    public struct Customer
     {
         
     }

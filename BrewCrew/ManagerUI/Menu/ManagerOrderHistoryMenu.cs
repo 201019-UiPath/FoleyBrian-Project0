@@ -1,7 +1,9 @@
 namespace ManagerUI.Menu
 {
-    public class ManagerOrderHistoryMenu
+    public class ManagerOrderHistoryMenu: IMenu
     {
-        
+        public void start() {
+            
+        }
     }
 }

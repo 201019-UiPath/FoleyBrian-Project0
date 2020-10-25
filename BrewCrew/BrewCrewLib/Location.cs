@@ -3,7 +3,7 @@ using System;
 
 namespace BrewCrewLib
 {
-    public class Location
+    public struct Location
     {
         public string Id {get; set;}
         public string State {get; set;}
