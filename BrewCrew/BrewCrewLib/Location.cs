@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System;
+
+namespace BrewCrewLib
+{
+    public class Location
+    {
+        public string Id {get; set;}
+        public string State {get; set;}
+        public string City {get; set;}
+        public string Address {get; set;}
+        public string Zip {get;set;}
+
+
+        //dictionary includes {"state", "city", "address", "zip"}; 
+        public void SetLocation(Dictionary<string,string> dictionary) 
+        {
+            this.Id = Guid.NewGuid().ToString();
+            this.State = dictionary["state"];
+            this.City = dictionary["city"];
+            this.Address = dictionary["address"];
+            this.Zip = dictionary["zip"];
+        }
+        
+    }
+}
