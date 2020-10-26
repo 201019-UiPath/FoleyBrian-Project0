@@ -10,7 +10,7 @@ namespace ManagerUI.Menu
         private string BreweryID {get; set;}
         private string BreweryName {get;set;}
 
-        private readonly string[] beerDescriptionOptions = {"name", "abv", "ibu"};
+        private readonly string[] beerDescriptionOptions = {"name", "abv", "ibu", "type"};
 
         public ManagerCreateBeerWizard(string breweryId, string breweryName) {
             this.BreweryID = breweryId;
@@ -33,8 +33,8 @@ namespace ManagerUI.Menu
             brewCrewBeerBl.AddData(beer);
             brewCrewBeerBl = null;
 
-            ManagerTaskMenu taskMenu = new ManagerTaskMenu(BreweryID, BreweryName);
-            taskMenu.start();
+            //ManagerTaskMenu taskMenu = new ManagerTaskMenu(BreweryID, BreweryName);
+            //taskMenu.start();
         }
 
         private string PromptUserFor(string option) {
@@ -45,6 +45,8 @@ namespace ManagerUI.Menu
                     return ValidateAbv();
                 case "ibu":
                     return ValidateIbu();
+                case "type":
+                    return ValidateType();
                 default:
                     // Log this instead of printing to the console
                     Console.WriteLine("Uh oh! the system does not recognize that. Please contact customer support at BrewCrew@brewcrew.net");
@@ -82,6 +84,20 @@ namespace ManagerUI.Menu
         }
 
         private string ValidateIbu() 
+        {
+            string answer;
+            while(true) {
+                answer = Console.ReadLine();
+
+                // if valid break loop and return
+                if (answer != null) {
+                    break;
+                }
+            }
+            return answer;
+        }
+
+        private string ValidateType() 
         {
             string answer;
             while(true) {
