@@ -1,6 +1,6 @@
 namespace ManagerUI.Menu
 {
-    public interface IMenu
+    public interface IMenuManager
     {
          void Start();
     }

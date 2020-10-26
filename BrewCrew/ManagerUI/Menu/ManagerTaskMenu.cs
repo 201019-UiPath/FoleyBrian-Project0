@@ -3,7 +3,7 @@ using System;
 namespace ManagerUI.Menu
 {
     
-    public class ManagerTaskMenu: IMenu
+    public class ManagerTaskMenu: IMenuManager
     {
         private string BreweryName {get; set;}
         private string BreweryID {get; set;}

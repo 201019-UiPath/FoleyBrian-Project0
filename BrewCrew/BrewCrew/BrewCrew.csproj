@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdminUI\AdminUI.csproj" />
+    <ProjectReference Include="..\ManagerUI\ManagerUI.csproj" />
+    <ProjectReference Include="..\CustomerUI\CustomerUI.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>

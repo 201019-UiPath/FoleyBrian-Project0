@@ -5,7 +5,7 @@ using BrewCrewLib;
 
 namespace ManagerUI.Menu
 {
-    public class ManagerWelcomeMenu: IMenu
+    public class ManagerWelcomeMenu: IMenuManager
     {
         private List<Brewery> Breweries {get; set;}
         public void Start() 

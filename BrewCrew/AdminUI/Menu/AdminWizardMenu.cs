@@ -7,7 +7,7 @@ using BrewCrewBL;
 
 namespace AdminUI.Menu
 {
-    public class AdminWizardMenu: IMenu
+    public class AdminWizardMenu: IMenuAdmin
     {
         private readonly string[] breweryOptions = {"breweryName"};
         private readonly string[] managerOptions = { "breweryManagerfName", "breweryManagerlName", 
@@ -18,7 +18,7 @@ namespace AdminUI.Menu
             Dictionary<string, string> breweryAnswers = new Dictionary<string, string>();
             Dictionary<string, string> managerAnswers = new Dictionary<string, string>();
             Dictionary<string, string> locationAnswers = new Dictionary<string, string>();
-            DisplayWelcomeMessage();
+            Console.WriteLine("Welcome Admin, please enter the brewery information");
 
             Console.WriteLine("First, lets start with some information about the brewery\n");
             foreach(var option in breweryOptions) {
@@ -56,9 +56,6 @@ namespace AdminUI.Menu
             brewCrewBreweryBl.AddData(brewery);
             brewCrewBreweryBl = null;
             
-        }
-        private void DisplayWelcomeMessage() {
-            Console.WriteLine("Welcome Admin, please enter the brewery information");
         }
 
         private string PromptUserFor(string option) {

@@ -5,7 +5,7 @@ using System;
 
 namespace ManagerUI.Menu
 {
-    public class ManagerRefillMenu: IMenu
+    public class ManagerRefillMenu: IMenuManager
     {
         private List<Beer> Beers {get;set;}
         private List<Beer> FilteredBeers;

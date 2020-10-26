@@ -1,7 +1,7 @@
 
 namespace ManagerUI.Menu
 {
-    public class ManagerOrderHistoryMenu: IMenu
+    public class ManagerOrderHistoryMenu: IMenuManager
     {
         private string BreweryID {get;set;}
         private string BreweryName {get;set;}

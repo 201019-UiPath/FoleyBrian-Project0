@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ManagerUI.Menu
 {
-    public class ManagerCreateBeerWizard: IMenu
+    public class ManagerCreateBeerWizard: IMenuManager
     {
         private string BreweryID {get; set;}
         private string BreweryName {get;set;}
