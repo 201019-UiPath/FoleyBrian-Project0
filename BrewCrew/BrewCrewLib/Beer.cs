@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BrewCrewLib
 {
-    public struct Beer
+    public class Beer
     {
         public string ID {get; set;}
         public string BreweryID {get; set;}
@@ -22,7 +22,7 @@ namespace BrewCrewLib
             this.Type = dictionary["type"];
             this.ABV = dictionary["abv"];
             this.IBU = dictionary["ibu"];
-            this.Keg = "100";
+            this.Keg = "50";
             foreach(var val in dictionary) {
                 Console.WriteLine(val.Value);
             }

@@ -4,7 +4,7 @@ using System;
 namespace BrewCrewLib
 {
     
-    public class Brewery
+    public struct Brewery
     {
         public string ID {get; set;}
         public string Name {get; set;}

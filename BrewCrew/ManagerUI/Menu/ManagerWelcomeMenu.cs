@@ -7,28 +7,27 @@ namespace ManagerUI.Menu
 {
     public class ManagerWelcomeMenu: IMenu
     {
-        private List<Brewery> breweries;
-        public void start() 
+        private List<Brewery> Breweries {get; set;}
+        public void Start() 
         {
-            getBreweries();
+            GetBreweries();
             Console.WriteLine("Welcome Manager! Please Select your brewery");
-                for(int i = 0; i < breweries.Count; i++) 
+                for(int i = 0; i < Breweries.Count; i++) 
                 {
-                    Console.WriteLine($"[{i}] - {breweries[i].Name}");
+                    Console.WriteLine($"[{i}] - {Breweries[i].Name}");
                 }
                 int answer = ValidateOption();
-                string breweryName = breweries[answer].Name;
-                string breweryId = breweries[answer].ID;
+                string breweryName = Breweries[answer].Name;
+                string breweryId = Breweries[answer].ID;
                 ManagerTaskMenu taskMenu = new ManagerTaskMenu(breweryName, breweryId);
-                taskMenu.start();
+                taskMenu.Start();
         }
 
-        private void getBreweries() 
+        private void GetBreweries() 
         {
             Brewery brewery = new Brewery();
             BrewCrewBL<Brewery> bl = new BrewCrewBL<Brewery>("brewery");
-            breweries = bl.GetAllListData();
-            brewery = null;
+            Breweries = bl.GetAllListData();
             bl = null;
         }
 

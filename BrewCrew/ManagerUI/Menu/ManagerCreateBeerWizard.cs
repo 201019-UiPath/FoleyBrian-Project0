@@ -17,7 +17,7 @@ namespace ManagerUI.Menu
             this.BreweryName = breweryName;
         }
 
-        public void start() {
+        public void Start() {
             Dictionary<string, string> answers = new Dictionary<string, string>();
             answers["breweryId"] = BreweryID;
             
@@ -34,7 +34,7 @@ namespace ManagerUI.Menu
             brewCrewBeerBl = null;
 
             //ManagerTaskMenu taskMenu = new ManagerTaskMenu(BreweryID, BreweryName);
-            //taskMenu.start();
+            //taskMenu.Start();
         }
 
         private string PromptUserFor(string option) {

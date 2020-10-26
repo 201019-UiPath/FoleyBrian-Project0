@@ -8,7 +8,7 @@ namespace ManagerUI
         static void Main(string[] args)
         {
             ManagerWelcomeMenu menu = new ManagerWelcomeMenu();
-            menu.start();
+            menu.Start();
         }
     }
 }

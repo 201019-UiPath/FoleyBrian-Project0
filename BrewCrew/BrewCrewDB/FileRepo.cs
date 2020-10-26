@@ -1,7 +1,4 @@
-using BrewCrewLib.Users;
-using BrewCrewLib;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.IO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -22,7 +19,7 @@ namespace BrewCrewDB
         {
             using(FileStream fs = File.Create(path)){
                 await JsonSerializer.SerializeAsync(fs, data);
-                System.Console.WriteLine($"Data is being written to file at {path}");
+                Console.WriteLine($"Data is being written to file at {path}");
             }
         }
 

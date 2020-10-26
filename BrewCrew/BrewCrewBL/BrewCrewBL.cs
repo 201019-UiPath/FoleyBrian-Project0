@@ -1,5 +1,4 @@
 using BrewCrewDB;
-using BrewCrewLib;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -49,6 +48,10 @@ namespace BrewCrewBL
         {
             Task<List<T>> getListData = repo.GetAllDataFromTableAsync(filepath);
             return getListData.Result;
+        }
+
+        public void ReplaceData(List<T> data) {
+            repo.AddDataToDBAsync(data, filepath);
         }
     }
 }

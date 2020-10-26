@@ -14,7 +14,7 @@ namespace ManagerUI.Menu
             this.BreweryID = breweryId;
         }
 
-        public void start() 
+        public void Start() 
         {
             Console.WriteLine("What would you like to do?");
             for(int i = 0; i < options.Length; i++) 
@@ -27,15 +27,15 @@ namespace ManagerUI.Menu
             {
                 case "Add a beer to inventory":
                     ManagerCreateBeerWizard beerWizard = new ManagerCreateBeerWizard(BreweryID, BreweryName);
-                    beerWizard.start();
+                    beerWizard.Start();
                     break;
                 case "View order history":
                     ManagerOrderHistoryMenu orderHistory = new ManagerOrderHistoryMenu(BreweryID, BreweryName);
-                    orderHistory.start();
+                    orderHistory.Start();
                     break;
                 case "Refill keg":
                     ManagerRefillMenu refillMenu = new ManagerRefillMenu(BreweryID, BreweryName);
-                    refillMenu.start();
+                    refillMenu.Start();
                     break;
                 default:
                     Console.WriteLine("Uh oh! the system does not recognize that. Please contact customer support at BrewCrew@brewcrew.net");
