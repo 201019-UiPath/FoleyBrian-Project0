@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BrewCrewLib
 {
-    public class Beer
+    public struct Beer
     {
         public string ID {get; set;}
         public string BreweryID {get; set;}
@@ -16,15 +16,22 @@ namespace BrewCrewLib
         //"name", "abv", "ibu" "breweryId", "type"
         public void SetBeer(Dictionary<string, string> dictionary) 
         {
-            this.ID = Guid.NewGuid().ToString();
+            if (!dictionary.ContainsKey("id"))
+            {
+                this.ID = Guid.NewGuid().ToString();
+            } else {
+                this.ID = dictionary["id"];
+            }
             this.BreweryID = dictionary["breweryId"];
             this.Name = dictionary["name"];
             this.Type = dictionary["type"];
             this.ABV = dictionary["abv"];
             this.IBU = dictionary["ibu"];
-            this.Keg = "50";
-            foreach(var val in dictionary) {
-                Console.WriteLine(val.Value);
+            if (!dictionary.ContainsKey("keg")) 
+            {
+                this.Keg = "50";
+            } else {
+                this.Keg = dictionary["keg"];
             }
         }   
     }

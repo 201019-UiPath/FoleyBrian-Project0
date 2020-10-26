@@ -25,7 +25,6 @@ namespace ManagerUI.Menu
 
         private void GetBreweries() 
         {
-            Brewery brewery = new Brewery();
             BrewCrewBL<Brewery> bl = new BrewCrewBL<Brewery>("brewery");
             Breweries = bl.GetAllListData();
             bl = null;
