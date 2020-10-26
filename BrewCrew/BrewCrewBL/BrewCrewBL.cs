@@ -8,7 +8,7 @@ namespace BrewCrewBL
 {
     public class BrewCrewBL<T>
     {
-        string filepath;
+        private readonly string filepath;
         public BrewCrewBL(string type) {
             switch (type) 
             {
@@ -20,6 +20,9 @@ namespace BrewCrewBL
                     break;
                 case "brewery":
                     this.filepath  = "/Users/brianfoley/Desktop/FoleyBrian-Project0/BrewCrew/BrewCrewDB/BreweryDataPlace/Breweries.txt";
+                    break;
+                case "beer":
+                    this.filepath = "/Users/brianfoley/Desktop/FoleyBrian-Project0/BrewCrew/BrewCrewDB/BeerDataPlace/Beer.txt";
                     break;
                 default:
                     Console.WriteLine("Unknown type");

@@ -54,12 +54,6 @@ namespace AdminUI.Menu
             Brewery brewery = new Brewery();
             brewery.SetBrewery(breweryAnswers);
             brewCrewBreweryBl.AddData(brewery);
-
-            List<Brewery> listData = brewCrewBreweryBl.GetAllListData();
-            foreach(var item in listData) {
-                Console.WriteLine(item.Id);
-            }
-
             brewCrewBreweryBl = null;
             
         }

@@ -25,19 +25,20 @@ namespace ManagerUI.Menu
             string strAnswer = options[answer];
             switch(strAnswer) 
             {
-                case options[0]:
-                    ManagerCreateBeerWizard beerWizard = new ManagerCreateBeerWizard(BreweryID);
+                case "Add a beer to inventory":
+                    ManagerCreateBeerWizard beerWizard = new ManagerCreateBeerWizard(BreweryID, BreweryName);
                     beerWizard.start();
                     break;
-                case options[1]:
-                    ManagerOrderHistoryMenu orderHistory = new ManagerOrderHistoryMenu(BreweryID);
+                case "View order history":
+                    ManagerOrderHistoryMenu orderHistory = new ManagerOrderHistoryMenu(BreweryID, BreweryName);
                     orderHistory.start();
                     break;
-                case options[2]:
-                    ManagerRefillMenu refillMenu = new ManagerRefillMenu(BreweryID);
+                case "Refill keg":
+                    ManagerRefillMenu refillMenu = new ManagerRefillMenu(BreweryID, BreweryName);
                     refillMenu.start();
+                    break;
                 default:
-                    Console.WriteLine("Uh Oh! The application does not recognize that option, please contact customer support at BrewCrew@brewcrew.net");
+                    Console.WriteLine("Uh oh! the system does not recognize that. Please contact customer support at BrewCrew@brewcrew.net");
                     break;
             }
         }

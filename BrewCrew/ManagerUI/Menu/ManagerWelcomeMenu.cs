@@ -18,7 +18,7 @@ namespace ManagerUI.Menu
                 }
                 int answer = ValidateOption();
                 string breweryName = breweries[answer].Name;
-                string breweryId = breweries[answer].Id;
+                string breweryId = breweries[answer].ID;
                 ManagerTaskMenu taskMenu = new ManagerTaskMenu(breweryName, breweryId);
                 taskMenu.start();
         }
