@@ -10,11 +10,11 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/ManagerUI/bin/Debug/netcoreapp3.1/ManagerUI.dll",
+            "program": "${workspaceFolder}/BrewCrew/bin/Debug/netcoreapp3.1/BrewCrew.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/ManagerUI",
+            "cwd": "${workspaceFolder}/BrewCrew",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopAtEntry": false
         },
         {

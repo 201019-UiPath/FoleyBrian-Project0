@@ -9,15 +9,20 @@ namespace AdminUI.Menu
 {
     public class AdminWizardMenu: IMenuAdmin
     {
-        private readonly string[] breweryOptions = {"breweryName"};
         private readonly string[] managerOptions = { "breweryManagerfName", "breweryManagerlName", 
         "email", "password"};
-        private readonly string[] locationOptions = {"state", "city", "address", "zip"};  
+        private readonly string[] breweryOptions = {"breweryName", "state", "city", "address", "zip"};  
 
         public void Start() {
-            Dictionary<string, string> breweryAnswers = new Dictionary<string, string>();
-            Dictionary<string, string> managerAnswers = new Dictionary<string, string>();
-            Dictionary<string, string> locationAnswers = new Dictionary<string, string>();
+            string breweryId = Guid.NewGuid().ToString();
+            Dictionary<string, string> breweryAnswers = new Dictionary<string, string>()
+            {
+                {"id", breweryId}
+            };
+            Dictionary<string, string> managerAnswers = new Dictionary<string, string>()
+            {
+                {"breweryId", breweryId}
+            };
             Console.WriteLine("Welcome Admin, please enter the brewery information");
 
             Console.WriteLine("First, lets start with some information about the brewery\n");
@@ -31,18 +36,6 @@ namespace AdminUI.Menu
                 managerAnswers[option] = PromptUserFor(option);
                 Console.WriteLine($"\nConfirm {option} : {managerAnswers[option]}");
             }
-
-            Console.WriteLine("\nFinally, lets enter some location information\n");
-            foreach(var option in locationOptions) {
-                locationAnswers[option] = PromptUserFor(option);
-                Console.WriteLine($"\nConfirm {option} : {locationAnswers[option]}");
-            }
-
-            BrewCrewBL<Location> brewCrewLocationBl = new BrewCrewBL<Location>("location");
-            Location location = new Location();
-            location.SetLocation(locationAnswers);
-            brewCrewLocationBl.AddData(location);
-            brewCrewLocationBl = null;
 
             BrewCrewBL<Manager> brewCrewManagerBl = new BrewCrewBL<Manager>("manager");
             Manager manager = new Manager();

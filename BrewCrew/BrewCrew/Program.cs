@@ -1,7 +1,4 @@
 ﻿using BrewCrew.Menu;
-using AdminUI;
-using ManagerUI;
-using CustomerUI;
 
 namespace BrewCrew
 {

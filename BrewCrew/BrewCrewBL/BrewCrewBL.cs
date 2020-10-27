@@ -14,14 +14,17 @@ namespace BrewCrewBL
                 case "manager":
                     this.filepath = "/Users/brianfoley/Desktop/FoleyBrian-Project0/BrewCrew/BrewCrewDB/ManagersDataPlace/Managers.txt";
                     break;
-                case "location":
-                    this.filepath = "/Users/brianfoley/Desktop/FoleyBrian-Project0/BrewCrew/BrewCrewDB/LocationsDataPlace/Locations.txt";
-                    break;
                 case "brewery":
                     this.filepath  = "/Users/brianfoley/Desktop/FoleyBrian-Project0/BrewCrew/BrewCrewDB/BreweryDataPlace/Breweries.txt";
                     break;
                 case "beer":
                     this.filepath = "/Users/brianfoley/Desktop/FoleyBrian-Project0/BrewCrew/BrewCrewDB/BeerDataPlace/Beer.txt";
+                    break;
+                case "cart":
+                this.filepath = "/Users/brianfoley/Desktop/FoleyBrian-Project0/BrewCrew/BrewCrewDB/OrderDataPlace/Cart.txt";
+                break;
+                case "order":
+                    this.filepath = "/Users/brianfoley/Desktop/FoleyBrian-Project0/BrewCrew/BrewCrewDB/OrderDataPlace/Order.txt";
                     break;
                 default:
                     Console.WriteLine("Unknown type");

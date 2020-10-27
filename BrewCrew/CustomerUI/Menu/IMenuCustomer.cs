@@ -1,3 +1,5 @@
+
+
 namespace CustomerUI.Menu
 {
     public interface IMenuCustomer

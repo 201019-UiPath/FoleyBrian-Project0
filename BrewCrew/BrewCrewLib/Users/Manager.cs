@@ -7,6 +7,7 @@ namespace BrewCrewLib.Users
         public string FName {get; set;}
         public string LName {get; set;}
         public string Id {get; set;}
+        public string BreweryID {get;set;}
         public string Email {get; set;}
         public string Password {get; set;}
 
@@ -18,6 +19,7 @@ namespace BrewCrewLib.Users
             this.LName = dictionary["breweryManagerlName"];
             this.Email = dictionary["email"];
             this.Password = dictionary["password"];
+            this.BreweryID = dictionary["breweryId"];
         }
         
     }
