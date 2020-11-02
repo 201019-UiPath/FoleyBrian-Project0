@@ -8,11 +8,16 @@ namespace BrewCrewDB
 {
     public class DBRepo: IAdminRepo, IManagerRepo, ICustomerRepo
     {
+        //Class Fields
         public BrewCrewContext context;
+
+        //Constructor
         public DBRepo(BrewCrewContext context)
         {
             this.context = context;
         }
+
+        //Manager Data
         public void AddManagerAsync(Manager manager)
         {
             context.Managers.AddAsync(manager);
@@ -24,6 +29,7 @@ namespace BrewCrewDB
             return context.Managers.Select(x => x).ToListAsync();
         }
 
+        //Brewery Data
         public void AddBreweryAsync(Brewery brewery)
         {
             context.Breweries.AddAsync(brewery);
@@ -35,15 +41,12 @@ namespace BrewCrewDB
             return context.Breweries.Select(x => x).ToListAsync();
         }
 
+
+        //Beer Data
         public void AddBeerAsync(Beer beer)
         {
             context.Beers.AddAsync(beer);
             context.SaveChanges();
-        }
-
-        public Task<List<Brewery>> GetAllBreweriesManagerAsync()
-        {
-            return context.Breweries.Select(x => x).ToListAsync();
         }
 
         public Task<List<Beer>> GetAllBeersByBreweryIdAsync(string breweryId)
@@ -62,6 +65,7 @@ namespace BrewCrewDB
             return context.Beers.Where(x => x.ID == beerId).FirstAsync();
         }
 
+        //Customer Data
         public Task<Customer> GetCustomerByIdAsync(string customerId)
         {
             return context.Customers.Where(x => x.ID == customerId).FirstAsync();
@@ -78,6 +82,8 @@ namespace BrewCrewDB
             return context.Customers.Where(x => x.Email == email).FirstOrDefault();
         }
 
+
+        //Order Data
         public void PlaceOrderAsync(Order order)
         {
             context.Orders.AddAsync(order);
@@ -86,13 +92,11 @@ namespace BrewCrewDB
 
         public Task<List<Order>> GetAllOrdersByBreweryIdAsync(string breweryId)
         {
-            //return context.Orders.Select(x => x).Include("Orders").ToListAsync();
             return context.Orders.Where(x => x.BreweryId == breweryId).ToListAsync();
         }
 
         public Task<List<Order>> GetAllOrdersByCustomerBreweryIdAsync(string customerId, string breweryId)
         {
-            //return context.Orders.Select(x => x).Include("Orders").ToListAsync();
             return context.Orders.Where(x => x.CustomerID == customerId).Where(y => y.BreweryId == breweryId).ToListAsync();
         }
     }

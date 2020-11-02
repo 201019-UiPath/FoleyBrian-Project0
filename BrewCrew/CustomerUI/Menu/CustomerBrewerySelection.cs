@@ -18,8 +18,7 @@ namespace CustomerUI.Menu
         {
              "Back"
         };
-
-
+        
         public CustomerBrewerySelection(DBRepo repo)
         {
             this.repo = repo;
@@ -49,6 +48,8 @@ namespace CustomerUI.Menu
                             orderMenu.BreweryID = brewery.ID;
                             orderMenu.BreweryName = brewery.Name;
                             orderMenu.CustomerId = CustomerId;
+                            Console.WriteLine("What is your table Number?");
+                            CustomerCartMenu.TableNumber = Console.ReadLine();
                             orderMenu.Start();
                         }catch(Exception e)
                         {

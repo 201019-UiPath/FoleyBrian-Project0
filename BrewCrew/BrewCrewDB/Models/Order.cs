@@ -11,14 +11,8 @@ namespace BrewCrewDB.Models
         public string BeerId {get;set;}
         public string Date {get; set;}
         public string TableNumber{get;set;}
-        //public Customer Customer {get;set;}
-        
-        //public Beer Beer {get; set;}
         public string BreweryId {get;set;}
-        //public Brewery Brewery {get;set;}
-        //public string BeerId {get;set;}
-        //public List<Beer> Beers {get;set;}
-        public string LineItemId {get;set;}
+         public string LineItemId {get;set;}
 
         public void SetOrder(Dictionary<string,object> dictionary)
         {   

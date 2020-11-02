@@ -12,11 +12,7 @@ namespace BrewCrewDB.Models
         public string ABV {get; set;}
         public string IBU {get; set;}
         public string Keg {get; set;}
-        //public List<OrderLink> Link {get; set;}
         public Brewery Brewery {get;set;}
-        public string OrderId {get;set;}
-        public Order Order {get;set;}
-
         // "name", "abv", "ibu" "breweryId", "type"
         public void SetBeer(Dictionary<string, string> dictionary) 
         {

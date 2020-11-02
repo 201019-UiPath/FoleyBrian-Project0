@@ -6,17 +6,19 @@ namespace BrewCrewDB
 {
     public interface IManagerRepo
     {
+        //Beer Data
         void AddBeerAsync(Beer beer);
-        Task<List<Brewery>> GetAllBreweriesManagerAsync();
-
-        Task<List<Beer>> GetAllBeersByBreweryIdAsync(string breweryId);
-
         void UpdateBeer(Beer beer);
-
+        Task<List<Beer>> GetAllBeersByBreweryIdAsync(string breweryId);
         Task<Beer> GetBeerByIdAsync(string beerId);
 
+        //Brewery Data
+        Task<List<Brewery>> GetAllBreweriesAsync();
+
+        //Order Data
         Task<List<Order>> GetAllOrdersByBreweryIdAsync(string breweryId);
 
+        //Customer Data
         Task<Customer> GetCustomerByIdAsync(string customerId);
 
     }

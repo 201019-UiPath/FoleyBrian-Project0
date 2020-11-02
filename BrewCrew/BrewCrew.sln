@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewCrewBL", "BrewCrewBL\BrewCrewBL.csproj", "{939E1F64-7604-4386-807B-621F9B463065}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewCrewDB", "BrewCrewDB\BrewCrewDB.csproj", "{D34C96DF-6A6A-447F-9465-452DF67B64CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewCrewLib", "BrewCrewLib\BrewCrewLib.csproj", "{B7674A9B-2518-417C-9B19-8AE20EBCA1B7}"

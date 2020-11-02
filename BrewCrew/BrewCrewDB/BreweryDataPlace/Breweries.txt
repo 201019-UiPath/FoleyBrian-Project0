@@ -1,1 +1,0 @@
-[{"ID":"1cf97609-9bc1-4602-b17e-6170506959c1","Name":"Lewis and Clark Brewery","State":"MT","City":"Helena","Address":"12 Beer ave","Zip":"12345"},{"ID":"9e2e4b54-3ae4-4187-a87c-df9c780b94cf","Name":"Missouri River Brewing Co","State":"MT","City":"East Helena","Address":"32 Stout Rd","Zip":"12345"}]

@@ -68,6 +68,8 @@ namespace CustomerUI.Menu
                         break;
                 }
             }while(!(UserInput == "0"));
+            CustomerCartMenu.TableNumber = null;
+            CustomerCartMenu.Beers.Clear();
         }
 
         private void GetBeers() 

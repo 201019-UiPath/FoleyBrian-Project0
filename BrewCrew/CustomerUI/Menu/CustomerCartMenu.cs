@@ -26,7 +26,13 @@ namespace CustomerUI.Menu
         {
            do 
            {
-               Console.WriteLine("Here is a list of everything in your cart");
+               if(CustomerCartMenu.Beers.Count == 0)
+               {
+                   Console.WriteLine("Your cart is empty");
+               } else {
+                   Console.WriteLine("Here is a list of everything in your cart");
+               }
+               
 
                foreach(var beer in CustomerCartMenu.Beers)
                {

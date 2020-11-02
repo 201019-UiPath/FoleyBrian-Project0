@@ -13,9 +13,6 @@ namespace CustomerUI.Menu
         private CustomerService customerService;
          private readonly string[] customerOptions = { "first name", "last name", 
         "email", "password"};
-        
-// private readonly string[] managerOptions = { "first name", "last name", 
-//         "email", "password"};
    
         public CustomerCreateUserWizard(DBRepo repo)
         {

@@ -55,7 +55,6 @@ namespace CustomerUI.Menu
                         Console.WriteLine("Invalid Input");
                         break;
                 }
-
             }while(!(UserInput == "0"));
         }
 

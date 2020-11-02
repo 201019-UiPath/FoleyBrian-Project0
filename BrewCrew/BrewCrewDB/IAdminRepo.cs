@@ -6,9 +6,12 @@ namespace BrewCrewDB
 {
     public interface IAdminRepo
     {
+        //Brewery Data
         void AddBreweryAsync(Brewery brewery);
 
          Task<List<Brewery>> GetAllBreweriesAsync();
+
+         //Manager Data
 
         void AddManagerAsync(Manager manager);
 

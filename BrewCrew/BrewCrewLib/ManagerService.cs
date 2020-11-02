@@ -19,7 +19,7 @@ namespace BrewCrewLib
 
         public List<Brewery> GetAllBreweries()
         {
-            return repo.GetAllBreweriesManagerAsync().Result;
+            return repo.GetAllBreweriesAsync().Result;
         }
 
         public List<Beer> GetAllBeersByBreweryId(string breweryId)

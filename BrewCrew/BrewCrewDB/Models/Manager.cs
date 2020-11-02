@@ -9,7 +9,7 @@ namespace BrewCrewDB.Models
         public string BreweryID {get;set;}
         public Brewery Brewery {get;set;}
 
-        // "breweryManagerfName", "breweryManagerlName", "email", "password"
+        // "first name", "last name", "email", "password breweryId"
         public void SetManager(Dictionary<string,object> dictionary)
         {
             base.ID = (string)Guid.NewGuid().ToString();

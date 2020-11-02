@@ -49,20 +49,6 @@ namespace CustomerUI.Menu
                         break;
                 }
             }while(!(UserInput == "0"));
-        }
-
-
-
-        private void GetBreweries() 
-        {
-            //int answer = ValidateOption();
-            // string BreweryName = Breweries[answer].Name;
-            // string BreweryId = Breweries[answer].ID;
-            // CustomerOrderMenu orderMenu = new CustomerOrderMenu(BreweryId, BreweryName);
-            // orderMenu.Start();
-            // BrewCrewBL<Brewery> bl = new BrewCrewBL<Brewery>("brewery");
-            // Breweries = bl.GetAllListData();
-            // bl = null;
-        }    
+        }  
     }
 }
