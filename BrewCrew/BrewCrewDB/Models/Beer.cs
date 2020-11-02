@@ -16,25 +16,13 @@ namespace BrewCrewDB.Models
         // "name", "abv", "ibu" "breweryId", "type"
         public void SetBeer(Dictionary<string, string> dictionary) 
         {
-            if (!dictionary.ContainsKey("id"))
-            {
-                this.ID = Guid.NewGuid().ToString();
-            } else {
-                this.ID = dictionary["id"];
-            }
+            this.ID = Guid.NewGuid().ToString();
             this.BreweryID = dictionary["breweryId"];
             this.Name = dictionary["name"];
             this.Type = dictionary["type"];
             this.ABV = dictionary["abv"];
             this.IBU = dictionary["ibu"];
-            if (!dictionary.ContainsKey("keg")) 
-            {
-                this.Keg = "50";
-            } else {
-                this.Keg = dictionary["keg"];
-            }
+            this.Keg = "50";
         }   
-    }
-
-    
+    }  
 }
