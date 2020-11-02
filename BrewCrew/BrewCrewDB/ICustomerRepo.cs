@@ -17,7 +17,7 @@ namespace BrewCrewDB
 
         Task<Beer> GetBeerByIdAsync(string beerId);
 
-        Task<List<Order>> GetAllOrdersByCustomerIdAsync(string customerId);
+        Task<List<Order>> GetAllOrdersByCustomerBreweryIdAsync(string customerId, string breweryId);
         void UpdateBeer(Beer beer);
 
     }

@@ -9,12 +9,13 @@ namespace CustomerUI.Menu
     public class CustomerOrderMenu: IMenuCustomer
     {
         private CustomerOrderConfirm orderConfirm;
+        private CustomerOrderHistoryMenu orderHistoryMenu;
         private string UserInput {get;set;}
         DBRepo repo;
         CustomerService customerService;
         private CustomerCartMenu cartMenu;
         private List<Beer> Beers {get;set;}
-         private readonly string[] options = {"Back", "View Cart"};
+         private readonly string[] options = {"Back", "View Cart", "View Order History"};
         public string BreweryID {get;set;}
         public string BreweryName {get;set;}
         public string CustomerId {get;set;}
@@ -24,6 +25,7 @@ namespace CustomerUI.Menu
             this.customerService = new CustomerService(repo);
             this.orderConfirm = new CustomerOrderConfirm();
             this.cartMenu = new CustomerCartMenu(repo);
+            this.orderHistoryMenu = new CustomerOrderHistoryMenu(repo);
         }
         public void Start() {
             GetBeers();
@@ -33,7 +35,6 @@ namespace CustomerUI.Menu
                 {
                     Console.WriteLine($"[{i}] - {options[i]}");
                 }
-                Console.WriteLine();
                 for(int i = 0; i < Beers.Count; i++) 
                 {
                     Console.WriteLine($"[{i+(options.Length)}] - {Beers[i].Name} - {Beers[i].Keg}%");
@@ -48,6 +49,11 @@ namespace CustomerUI.Menu
                         cartMenu.BreweryId = BreweryID;
                         cartMenu.CustomerId = CustomerId;
                         cartMenu.Start();
+                        break;
+                    case "2":
+                        orderHistoryMenu.BreweryId = BreweryID;
+                        orderHistoryMenu.CustomerId = CustomerId;
+                        orderHistoryMenu.Start();
                         break;
                     default:
                         try 

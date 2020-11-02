@@ -90,13 +90,10 @@ namespace BrewCrewDB
             return context.Orders.Where(x => x.BreweryId == breweryId).ToListAsync();
         }
 
-        public Task<List<Order>> GetAllOrdersByCustomerIdAsync(string customerId)
+        public Task<List<Order>> GetAllOrdersByCustomerBreweryIdAsync(string customerId, string breweryId)
         {
             //return context.Orders.Select(x => x).Include("Orders").ToListAsync();
-            return context.Orders.Where(x => x.CustomerID == customerId).ToListAsync();
+            return context.Orders.Where(x => x.CustomerID == customerId).Where(y => y.BreweryId == breweryId).ToListAsync();
         }
-
-
-
     }
 }

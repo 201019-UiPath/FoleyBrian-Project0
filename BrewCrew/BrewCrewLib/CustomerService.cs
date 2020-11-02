@@ -38,9 +38,9 @@ namespace BrewCrewLib
             return repo.GetAllBeersByBreweryIdAsync(breweryId).Result;
         }
 
-        Task<List<Order>> GetAllOrdersByCustomerId(string customerId)
+        public List<Order> GetAllOrdersByCustomerBreweryId(string customerId, string breweryId)
         {
-            return repo.GetAllOrdersByCustomerIdAsync(customerId);
+            return repo.GetAllOrdersByCustomerBreweryIdAsync(customerId, breweryId).Result;
         }
 
         public Beer GetBeerById(string beerId)
