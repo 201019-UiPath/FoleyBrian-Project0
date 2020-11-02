@@ -1,58 +1,72 @@
 using System;
 using System.Collections.Generic;
+using BrewCrewDB.Models;
+using BrewCrewDB;
 using BrewCrewLib;
-using BrewCrewBL;
 
 namespace CustomerUI.Menu
 {
     public class CustomerOrderMenu: IMenuCustomer
     {
-       private List<Beer> Beers {get;set;}
-        private List<Beer> FilteredBeers;
-        private string BreweryID {get;set;}
-        private string BreweryName {get;set;}
+        private CustomerOrderConfirm orderConfirm;
+        private string UserInput {get;set;}
+        DBRepo repo;
+        CustomerService customerService;
+        private CustomerCartMenu cartMenu;
+        private List<Beer> Beers {get;set;}
+         private readonly string[] options = {"Back", "View Cart"};
+        public string BreweryID {get;set;}
+        public string BreweryName {get;set;}
+        public string CustomerId {get;set;}
 
-        public CustomerOrderMenu(string breweryId, string breweryName) {
-            this.BreweryID = breweryId;
-            this.BreweryName = breweryName;
+        public CustomerOrderMenu(DBRepo repo) {
+            this.repo = repo;
+            this.customerService = new CustomerService(repo);
+            this.orderConfirm = new CustomerOrderConfirm();
+            this.cartMenu = new CustomerCartMenu(repo);
         }
         public void Start() {
             GetBeers();
-            Console.WriteLine("Order a beer");
-                for(int i = 0; i < FilteredBeers.Count; i++) 
+            do
+            {
+                for(int i = 0; i < options.Length; i++)
                 {
-                    Console.WriteLine($"[{i}] - {FilteredBeers[i].Name} - {FilteredBeers[i].Keg}");
+                    Console.WriteLine($"[{i}] - {options[i]}");
                 }
-                int answer = ValidateOption();
-                Beer beer = FilteredBeers[answer];
-                CustomerOrderConfirm confirmMenu = new CustomerOrderConfirm(beer);
-                confirmMenu.Start();
+                Console.WriteLine();
+                for(int i = 0; i < Beers.Count; i++) 
+                {
+                    Console.WriteLine($"[{i+(options.Length)}] - {Beers[i].Name} - {Beers[i].Keg}%");
+                }
+                UserInput = Console.ReadLine();
+                switch (UserInput)
+                {
+                    case "0":
+                        break;
+                        //View Cart
+                    case "1":
+                        cartMenu.BreweryId = BreweryID;
+                        cartMenu.CustomerId = CustomerId;
+                        cartMenu.Start();
+                        break;
+                    default:
+                        try 
+                        {
+                            Beer beer = Beers[int.Parse(UserInput) - options.Length];
+                            orderConfirm.Beer = beer;
+                            orderConfirm.Start();
+                        } catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                        break;
+                }
+            }while(!(UserInput == "0"));
         }
 
         private void GetBeers() 
         {
-            BrewCrewBL<Beer> bl = new BrewCrewBL<Beer>("beer");
-            Beers = bl.GetAllListData();
-            bl = null;
-            FilterBeersByBrewery();
-        }
-
-        private void FilterBeersByBrewery() {
-            FilteredBeers = Beers.FindAll(brew => brew.BreweryID == BreweryID);
-        }
-
-        private int ValidateOption() 
-        {
-            int answer;
-            while(true) {
-                answer = int.Parse(Console.ReadLine());
-
-                // if valid break loop and return
-                if (answer != null) {
-                    break;
-                }
-            }
-            return answer;
+             Beers = customerService.GetAllBeersByBreweryId(BreweryID);
         }
     }
 }

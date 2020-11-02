@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace BrewCrewLib
+namespace BrewCrewDB.Models
 {
-    public struct Beer
+    public class Beer
     {
         public string ID {get; set;}
         public string BreweryID {get; set;}
@@ -12,8 +12,12 @@ namespace BrewCrewLib
         public string ABV {get; set;}
         public string IBU {get; set;}
         public string Keg {get; set;}
+        //public List<OrderLink> Link {get; set;}
+        public Brewery Brewery {get;set;}
+        public string OrderId {get;set;}
+        public Order Order {get;set;}
 
-        //"name", "abv", "ibu" "breweryId", "type"
+        // "name", "abv", "ibu" "breweryId", "type"
         public void SetBeer(Dictionary<string, string> dictionary) 
         {
             if (!dictionary.ContainsKey("id"))

@@ -2,54 +2,53 @@ using AdminUI.Menu;
 using ManagerUI.Menu;
 using CustomerUI.Menu;
 using System;
+using BrewCrewDB;
 
 namespace BrewCrew.Menu
 {
     public class MainMenu: IMenu
     {
-        private readonly string[] options = {"Admin", "Manager", "Customer"};
+        private AdminWizardMenu adminMenu;
+        private ManagerWelcomeMenu managerMenu;
+        private CustomerWelcomeMenu customerMenu;
+        private string userInput;
+        private readonly string[] options = {"Admin", "Manager", "Customer", "Exit"};
 
+        public MainMenu(BrewCrewContext context)
+        {
+            this.adminMenu = new AdminWizardMenu(new DBRepo(context));
+            this.managerMenu = new ManagerWelcomeMenu(new DBRepo(context));
+            this.customerMenu = new CustomerWelcomeMenu(new DBRepo(context));
+        }
         public void Start() 
         {
-            Console.WriteLine("What would you like to do?");
-            for(int i = 0; i < options.Length; i++) 
+            do 
             {
-                Console.WriteLine($"[{i}] - {options[i]}");
-            }
-            int answer = ValidateOption();
-            string strAnswer = options[answer];
-            switch(strAnswer) 
-            {
-                case "Admin":
-                    IMenuAdmin adminMenu = new AdminWizardMenu();
-                    adminMenu.Start();
-                    break;
-                case "Manager":
-                    IMenuManager managerMenu = new ManagerWelcomeMenu();
-                    managerMenu.Start();
-                    break;
-                case "Customer":
-                    IMenuCustomer customerMenu = new CustomerWelcomeMenu();
-                    customerMenu.Start();
-                    break;
-                default:
-                    Console.WriteLine("Uh oh! the system does not recognize that. Please contact customer support at BrewCrew@brewcrew.net");
-                    break;
-            }
-        }
-
-        private int ValidateOption() 
-        {
-            int answer;
-            while(true) {
-                answer = int.Parse(Console.ReadLine());
-
-                // if valid break loop and return
-                if (answer != null) {
-                    break;
+                Console.WriteLine("Welcome! What are you?");
+                for(int i = 0; i < options.Length; i++)
+                {
+                    Console.WriteLine($"[{i}] - {options[i]}");
                 }
-            }
-            return answer;
+                userInput = Console.ReadLine();
+                switch(userInput)
+                {
+                    case "0":
+                        adminMenu.Start();
+                        break;
+                    case "1":
+                        managerMenu.Start();
+                        break;
+                    case "2":
+                        customerMenu.Start();
+                        break;
+                    case "3":
+                        Console.WriteLine("GoodBye");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Option");
+                        break;
+                }
+            }while(!(userInput.Equals((options.Length - 1).ToString())));
         }
     }
 }

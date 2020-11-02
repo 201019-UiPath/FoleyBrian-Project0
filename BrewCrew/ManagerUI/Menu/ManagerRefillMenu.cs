@@ -1,83 +1,66 @@
-using BrewCrewBL;
-using BrewCrewLib;
+
+using BrewCrewDB.Models;
 using System.Collections.Generic;
 using System;
+using BrewCrewDB;
+using BrewCrewLib;
 
 namespace ManagerUI.Menu
 {
     public class ManagerRefillMenu: IMenuManager
     {
+        private string UserInput {get;set;}
+        private ManagerService managerService;
+        private DBRepo repo;
         private List<Beer> Beers {get;set;}
-        private List<Beer> FilteredBeers;
         private string BreweryID {get;set;}
         private string BreweryName {get;set;}
 
-        public ManagerRefillMenu(string breweryId, string breweryName) {
+        public ManagerRefillMenu(string breweryId, string breweryName, DBRepo repo) {
             this.BreweryID = breweryId;
             this.BreweryName = breweryName;
+            this.repo = repo;
+            this.managerService = new ManagerService(repo);
         }
         public void Start() {
             GetBeers();
-            Console.WriteLine("Select a keg to refill");
-                for(int i = 0; i < FilteredBeers.Count; i++) 
+            do
+            {
+                Console.WriteLine("Select a keg to refill");
+                Console.WriteLine("[0] - Back");
+                for(int i = 1; i <= Beers.Count; i++) 
                 {
-                    Console.WriteLine($"[{i}] - {FilteredBeers[i].Name} - {FilteredBeers[i].Keg}");
+                    Console.WriteLine($"[{i}] - {Beers[i-1].Name} - {Beers[i-1].Keg}%");
                 }
-                int answer = ValidateOption();
-                RefillBeer(answer);
-                //ManagerTaskMenu taskMenu = new ManagerTaskMenu(BreweryName, BreweryID);
-                //taskMenu.Start();
+                UserInput = Console.ReadLine();
+                switch (UserInput)
+                {
+                    case "0":
+                        break;
+                    default:
+                        try 
+                        {
+                            Beer beer = Beers[int.Parse(UserInput)-1];
+                            RefillBeer(beer);
+                        } catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                        break;
+                }
+            }while(!(UserInput == "0"));
         }
 
         private void GetBeers() 
         {
-            BrewCrewBL<Beer> bl = new BrewCrewBL<Beer>("beer");
-            Beers = bl.GetAllListData();
-            bl = null;
-            FilterBeersByBrewery();
+            Beers = managerService.GetAllBeersByBreweryId(BreweryID);
         }
 
-        private void FilterBeersByBrewery() {
-            FilteredBeers = Beers.FindAll(brew => brew.BreweryID == BreweryID);
-        }
-
-        private void RefillBeer(int answer) {
-            int keg = int.Parse(FilteredBeers[answer].Keg);
-            keg = 100; //can do incremental logic here instead. Check value is between -1 and 101
-            string strKeg = keg.ToString();
-            //create a copy of a beer object then replace it in the array. This is because it is a struct (value type).
-            Dictionary<string,string> dataInput = new Dictionary<string,string>();
-            //"name", "abv", "ibu" "breweryId", "type"
-            dataInput["name"] = FilteredBeers[answer].Name;
-            dataInput["abv"] = FilteredBeers[answer].ABV;
-            dataInput["ibu"] = FilteredBeers[answer].IBU;
-            dataInput["breweryId"] = this.BreweryID;
-            dataInput["type"] = FilteredBeers[answer].Type;
-            dataInput["id"] = FilteredBeers[answer].ID;
-            dataInput["keg"] = strKeg;
-            Beer beer = new Beer();
-            beer.SetBeer(dataInput);
-
-            Beers[Beers.FindIndex(brew => brew.ID == FilteredBeers[answer].ID)] = beer;
-            
-            BrewCrewBL<Beer> bl = new BrewCrewBL<Beer>("beer");
-            bl.ReplaceData(Beers);
-            bl = null;
-        }
-
-        private int ValidateOption() 
-        {
-            int answer;
-            while(true) {
-                answer = int.Parse(Console.ReadLine());
-
-                // if valid break loop and return
-                if (answer != null) {
-                    break;
-                }
-            }
-            return answer;
-        }
-        
+        private void RefillBeer(Beer beer) {
+            int keg = int.Parse(beer.Keg);
+            keg += 10;
+            beer.Keg = keg.ToString();
+            managerService.UpdateBeer(beer);
+        }        
     }
 }

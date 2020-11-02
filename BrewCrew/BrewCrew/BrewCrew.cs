@@ -1,12 +1,13 @@
 ﻿using BrewCrew.Menu;
+using BrewCrewDB;
 
 namespace BrewCrew
 {
-    class Program
+    class BrewCrew
     {
         static void Main(string[] args)
         {
-            MainMenu mainMenu = new MainMenu();
+            MainMenu mainMenu = new MainMenu(new BrewCrewContext());
             mainMenu.Start();
         }
     }

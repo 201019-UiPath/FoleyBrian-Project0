@@ -1,3 +1,4 @@
+using BrewCrewDB.Models;
 using System;
 
 namespace CustomerUI.Menu
@@ -15,14 +16,14 @@ namespace CustomerUI.Menu
         public void Start()
         {
             Console.WriteLine("What is your table number?");
-            Cart.TableNumber = ValidateOption();
+            CustomerCartMenu.TableNumber = ValidateOption();
         }
 
-         private int ValidateOption() 
+         private string ValidateOption() 
         {
-            int answer;
+            string answer;
             while(true) {
-                answer = int.Parse(Console.ReadLine());
+                answer = Console.ReadLine();
 
                 // if valid break loop and return
                 if (answer != null) {

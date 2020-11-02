@@ -1,195 +1,244 @@
 using System;
 using System.Collections.Generic;
 using BrewCrewLib;
-using BrewCrewLib.Users;
-using BrewCrewBL;
+using BrewCrewDB;
+using BrewCrewDB.Models;
 
 
 namespace AdminUI.Menu
 {
     public class AdminWizardMenu: IMenuAdmin
     {
-        private readonly string[] managerOptions = { "breweryManagerfName", "breweryManagerlName", 
+        private object _lockObject = new object();
+        private string userInput;
+        //private IAdminRepo repo;
+        private AdminService adminService;
+        //private AdminService AdminService {get;set;}
+        private readonly string[] options = {"Create a brewery", "Get all Managers", "Exit"};
+        private readonly string[] managerOptions = { "first name", "last name", 
         "email", "password"};
-        private readonly string[] breweryOptions = {"breweryName", "state", "city", "address", "zip"};  
+        private readonly string[] breweryOptions = {"name", "state", "city", "address", "zip"};  
+
+        public AdminWizardMenu(IAdminRepo repo)
+        {
+            //this.repo = repo;
+            this.adminService = new AdminService(repo);
+        }
 
         public void Start() {
-            string breweryId = Guid.NewGuid().ToString();
-            Dictionary<string, string> breweryAnswers = new Dictionary<string, string>()
+
+             do 
             {
-                {"id", breweryId}
-            };
-            Dictionary<string, string> managerAnswers = new Dictionary<string, string>()
+                Console.WriteLine("What would you like to do?");
+                for(int i = 0; i < options.Length; i++)
+                {
+                    Console.WriteLine($"[{i}] - {options[i]}");
+                }
+                userInput = Console.ReadLine();
+                switch (userInput)
+                {
+                    //Create a brewery
+                    case "0":
+                        string breweryId = Guid.NewGuid().ToString();
+                        Brewery brewery = GetCreatedBrewery(breweryId);
+                        Manager manager = GetCreatedManager(breweryId);
+                        brewery.Manager = manager;
+                        adminService.AddBrewery(brewery);
+                        //adminService.AddManager(manager);
+                        break;
+                    //Get managers
+                    case "1":
+                        foreach(var mgr in adminService.GetAllManagers())
+                        {
+                            Console.WriteLine($"{mgr.FName} {mgr.LName}");
+                        }
+                        break;
+                    //Exit
+                    case "2":
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input");
+                        break;
+                }
+                
+            }while(!(userInput.Equals((options.Length - 1).ToString())));
+        }
+
+        public Manager GetCreatedManager(string breweryId)
+        {
+            Dictionary<string, object> managerAnswers = new Dictionary<string, object>()
             {
                 {"breweryId", breweryId}
             };
-            Console.WriteLine("Welcome Admin, please enter the brewery information");
-
-            Console.WriteLine("First, lets start with some information about the brewery\n");
-            foreach(var option in breweryOptions) {
-                breweryAnswers[option] = PromptUserFor(option);
-                Console.WriteLine($"\nConfirm {option} : {breweryAnswers[option]}");
-            }
-
             Console.WriteLine("\nGreat! Now lets enter some information about the manager\n");
-            foreach(var option in managerOptions) {
-                managerAnswers[option] = PromptUserFor(option);
-                Console.WriteLine($"\nConfirm {option} : {managerAnswers[option]}");
+            for(int i = 0; i < managerOptions.Length; i++) {
+                Console.WriteLine($"What is the managers {managerOptions[i]}");
+                managerAnswers[managerOptions[i]] = Console.ReadLine();
+                Console.WriteLine($"\nConfirm {managerOptions[i]} : {managerAnswers[managerOptions[i]]}");
             }
-
-            BrewCrewBL<Manager> brewCrewManagerBl = new BrewCrewBL<Manager>("manager");
             Manager manager = new Manager();
             manager.SetManager(managerAnswers);
-            brewCrewManagerBl.AddData(manager);
-            brewCrewManagerBl = null;
+            return manager;
 
-            BrewCrewBL<Brewery> brewCrewBreweryBl = new BrewCrewBL<Brewery>("brewery");
+        }
+        public Brewery GetCreatedBrewery(string breweryId)
+        {
+            Dictionary<string, object> breweryAnswers = new Dictionary<string, object>()
+            {
+                {"id", breweryId}
+            };
+            Console.WriteLine("First, lets start with some information about the brewery\n");
+            for(int i = 0; i < breweryOptions.Length; i++) {
+                 Console.WriteLine($"What is the brewery's {breweryOptions[i]}");
+                breweryAnswers[breweryOptions[i]] = Console.ReadLine();
+                Console.WriteLine($"\nConfirm {breweryOptions[i]} : {breweryAnswers[breweryOptions[i]]}");
+            }
             Brewery brewery = new Brewery();
             brewery.SetBrewery(breweryAnswers);
-            brewCrewBreweryBl.AddData(brewery);
-            brewCrewBreweryBl = null;
-            
-        }
-
-        private string PromptUserFor(string option) {
-            switch (option) {
-                case "breweryName":
-                    Console.WriteLine("Enter the brewery name");
-                    return ValidateBreweryName();
-                case "breweryManagerfName":
-                    Console.WriteLine("Enter the managers first name");
-                    return ValidateManagerName();
-                case "breweryManagerlName":
-                    Console.WriteLine("Enter the managers last name");
-                    return ValidateManagerName();
-                case "email":
-                    Console.WriteLine("Enter the managers email");
-                    return ValidateEmail();
-                case "password":
-                    Console.WriteLine("Give the manager a temporary password");
-                    return ValidatePassword();
-                case "state":
-                    Console.WriteLine("What state does the brewery reside in?");
-                    return ValidateState();
-                case "city":
-                    Console.WriteLine("What city does the brewery reside in?");
-                    return ValidateCity();
-                case "address":
-                    Console.WriteLine("What is the brewery street address?");
-                    return ValidateAddress();
-                case "zip":
-                    Console.WriteLine("What zipcode does the brewery reside in?");
-                    return ValidateZipCode();
-                default:
-                    // Log this instead of printing to the console
-                    Console.WriteLine("Uh oh! the system does not recognize that");
-                    return "";
-            }
-
-        }
-
-        private string ValidateBreweryName() {
-            string answer;
-            while(true) {
-                answer = Console.ReadLine();
-
-                // if valid break loop and return
-                if (answer != null) {
-                    break;
-                }
-            }
-            return answer;
-        }
-
-        private string ValidateManagerName() {
-            string answer;
-            while(true) {
-                answer = Console.ReadLine();
-
-                // if valid break loop and return
-                if (answer != null) {
-                    break;
-                }
-            }
-            return answer;
-        }
-
-        private string ValidateEmail() {
-            string answer;
-            while(true) {
-                answer = Console.ReadLine();
-
-                // if valid break loop and return
-                if (answer != null) {
-                    break;
-                }
-            }
-            return answer;
-        }
-
-        private string ValidatePassword() {
-            string answer;
-            while(true) {
-                answer = Console.ReadLine();
-
-                // if valid break loop and return
-                if (answer != null) {
-                    break;
-                }
-            }
-            return answer;
-        }
-
-        private string ValidateState() {
-            string answer;
-            while(true) {
-                answer = Console.ReadLine();
-
-                // if valid break loop and return
-                if (answer != null) {
-                    break;
-                }
-            }
-            return answer;
-        }
-
-        private string ValidateCity() {
-            string answer;
-            while(true) {
-                answer = Console.ReadLine();
-
-                // if valid break loop and return
-                if (answer != null) {
-                    break;
-                }
-            }
-            return answer;
-        }
-
-        private string ValidateAddress() {
-            string answer;
-            while(true) {
-                answer = Console.ReadLine();
-
-                // if valid break loop and return
-                if (answer != null) {
-                    break;
-                }
-            }
-            return answer;
-        }
-
-        private string ValidateZipCode() {
-            string answer;
-            while(true) {
-                answer = Console.ReadLine();
-
-                // if valid break loop and return
-                if (answer != null) {
-                    break;
-                }
-            }
-            return answer;
+            return brewery;
         }
     }
 }
+
+        // private string PromptUserFor(string option) {
+        //     switch (option) {
+        //         case "breweryName":
+        //             Console.WriteLine("Enter the brewery name");
+        //             return ValidateBreweryName();
+        //         case "breweryManagerfName":
+        //             Console.WriteLine("Enter the managers first name");
+        //             return ValidateManagerName();
+        //         case "breweryManagerlName":
+        //             Console.WriteLine("Enter the managers last name");
+        //             return ValidateManagerName();
+        //         case "email":
+        //             Console.WriteLine("Enter the managers email");
+        //             return ValidateEmail();
+        //         case "password":
+        //             Console.WriteLine("Give the manager a temporary password");
+        //             return ValidatePassword();
+        //         case "state":
+        //             Console.WriteLine("What state does the brewery reside in?");
+        //             return ValidateState();
+        //         case "city":
+        //             Console.WriteLine("What city does the brewery reside in?");
+        //             return ValidateCity();
+        //         case "address":
+        //             Console.WriteLine("What is the brewery street address?");
+        //             return ValidateAddress();
+        //         case "zip":
+        //             Console.WriteLine("What zipcode does the brewery reside in?");
+        //             return ValidateZipCode();
+        //         default:
+        //             // Log this instead of printing to the console
+        //             Console.WriteLine("Uh oh! the system does not recognize that");
+        //             return "";
+        //     }
+
+        // }
+
+        // private string ValidateBreweryName() {
+        //     string answer;
+        //     while(true) {
+        //         answer = Console.ReadLine();
+
+        //         // if valid break loop and return
+        //         if (answer != null) {
+        //             break;
+        //         }
+        //     }
+        //     return answer;
+        // }
+
+        // private string ValidateManagerName() {
+        //     string answer;
+        //     while(true) {
+        //         answer = Console.ReadLine();
+
+        //         // if valid break loop and return
+        //         if (answer != null) {
+        //             break;
+        //         }
+        //     }
+        //     return answer;
+        // }
+
+        // private string ValidateEmail() {
+        //     string answer;
+        //     while(true) {
+        //         answer = Console.ReadLine();
+
+        //         // if valid break loop and return
+        //         if (answer != null) {
+        //             break;
+        //         }
+        //     }
+        //     return answer;
+        // }
+
+        // private string ValidatePassword() {
+        //     string answer;
+        //     while(true) {
+        //         answer = Console.ReadLine();
+
+        //         // if valid break loop and return
+        //         if (answer != null) {
+        //             break;
+        //         }
+        //     }
+        //     return answer;
+        // }
+
+        // private string ValidateState() {
+        //     string answer;
+        //     while(true) {
+        //         answer = Console.ReadLine();
+
+        //         // if valid break loop and return
+        //         if (answer != null) {
+        //             break;
+        //         }
+        //     }
+        //     return answer;
+        // }
+
+        // private string ValidateCity() {
+        //     string answer;
+        //     while(true) {
+        //         answer = Console.ReadLine();
+
+        //         // if valid break loop and return
+        //         if (answer != null) {
+        //             break;
+        //         }
+        //     }
+        //     return answer;
+        // }
+
+        // private string ValidateAddress() {
+        //     string answer;
+        //     while(true) {
+        //         answer = Console.ReadLine();
+
+        //         // if valid break loop and return
+        //         if (answer != null) {
+        //             break;
+        //         }
+        //     }
+        //     return answer;
+        // }
+
+        // private string ValidateZipCode() {
+        //     string answer;
+        //     while(true) {
+        //         answer = Console.ReadLine();
+
+        //         // if valid break loop and return
+        //         if (answer != null) {
+        //             break;
+        //         }
+        //     }
+        //     return answer;
+        // }
+//     }
+// }

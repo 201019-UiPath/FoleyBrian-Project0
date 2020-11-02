@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminUI", "AdminUI\AdminUI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerUI", "CustomerUI\CustomerUI.csproj", "{DC72E8F9-E352-48B5-9437-A7D2A0523D42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewCrew", "BrewCrew\BrewCrew.csproj", "{49155FC3-637E-488D-86A4-2A2DE48170EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -162,5 +164,17 @@ Global
 		{DC72E8F9-E352-48B5-9437-A7D2A0523D42}.Release|x64.Build.0 = Release|Any CPU
 		{DC72E8F9-E352-48B5-9437-A7D2A0523D42}.Release|x86.ActiveCfg = Release|Any CPU
 		{DC72E8F9-E352-48B5-9437-A7D2A0523D42}.Release|x86.Build.0 = Release|Any CPU
+		{49155FC3-637E-488D-86A4-2A2DE48170EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49155FC3-637E-488D-86A4-2A2DE48170EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49155FC3-637E-488D-86A4-2A2DE48170EA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{49155FC3-637E-488D-86A4-2A2DE48170EA}.Debug|x64.Build.0 = Debug|Any CPU
+		{49155FC3-637E-488D-86A4-2A2DE48170EA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{49155FC3-637E-488D-86A4-2A2DE48170EA}.Debug|x86.Build.0 = Debug|Any CPU
+		{49155FC3-637E-488D-86A4-2A2DE48170EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49155FC3-637E-488D-86A4-2A2DE48170EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49155FC3-637E-488D-86A4-2A2DE48170EA}.Release|x64.ActiveCfg = Release|Any CPU
+		{49155FC3-637E-488D-86A4-2A2DE48170EA}.Release|x64.Build.0 = Release|Any CPU
+		{49155FC3-637E-488D-86A4-2A2DE48170EA}.Release|x86.ActiveCfg = Release|Any CPU
+		{49155FC3-637E-488D-86A4-2A2DE48170EA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
