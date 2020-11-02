@@ -2,7 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BrewCrewLib\BrewCrewLib.csproj" />
-    <ProjectReference Include="..\BrewCrewBL\BrewCrewBL.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

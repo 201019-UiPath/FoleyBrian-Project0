@@ -25,7 +25,7 @@ namespace CustomerUI.Menu
             bool loginSuccess = false;
             do
             {
-                
+                // Detecting emails ^\w+@\w+.(com|net|gov|edu)$
                 Console.WriteLine("Please Enter your Email");
                 for(int i = 0; i < options.Length; i++)
                 {

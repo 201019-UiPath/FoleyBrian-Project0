@@ -50,5 +50,6 @@ namespace BrewCrew.Menu
                 }
             }while(!(userInput.Equals((options.Length - 1).ToString())));
         }
+
     }
 }

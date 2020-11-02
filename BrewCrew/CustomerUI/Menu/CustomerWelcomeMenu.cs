@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using BrewCrewDB.Models;
 using BrewCrewDB;
 using BrewCrewLib;
+using Serilog;
 
 namespace CustomerUI.Menu
 {
     public class CustomerWelcomeMenu: IMenuCustomer
     {
         private CustomerCreateUserWizard createUserWizard;
-        private CustomerLoginWizard loginWizard;
+        private IMenuCustomer loginWizard;
         private string UserInput {get;set;}
         private CustomerService customerService;
         private DBRepo repo;
@@ -21,6 +22,7 @@ namespace CustomerUI.Menu
             this.customerService = new CustomerService(repo);
             this.createUserWizard = new CustomerCreateUserWizard(repo);
             this.loginWizard = new CustomerLoginWizard(repo);
+            
         }
         public void Start() 
         {

@@ -2,6 +2,8 @@ using BrewCrewDB;
 using BrewCrewDB.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Serilog;
+using System;
 
 namespace BrewCrewLib
 {
@@ -11,22 +13,50 @@ namespace BrewCrewLib
         public AdminService(IAdminRepo repo)
         {
             this.repo = repo;
+            var log = new LoggerConfiguration()
+                .WriteTo.File("/Users/brianfoley/Desktop/FoleyBrian-Project0/BrewCrew/logs.txt")
+                .CreateLogger();
         }
 
         public void AddManager(Manager manager)
         {
-            repo.AddManagerAsync(manager);
+            try 
+            {
+                repo.AddManagerAsync(manager);
+            } catch(Exception e)
+            {
+                Log.Logger.Information($"Unable to Add Manager Async {e.Message}");
+            }
+            Log.Logger.Information($"Manager Successfully Added");
+            
         }
 
         public void AddBrewery(Brewery brewery)
         {
-            repo.AddBreweryAsync(brewery);
+            try
+            {
+                repo.AddBreweryAsync(brewery);
+            } catch (Exception e)
+            {
+                Log.Logger.Information($"Unable to Add Brewery {e.Message}");
+            }
+            Log.Logger.Information($"Brewery Successfully Added");
         }
 
         public List<Manager> GetAllManagers()
         {
-            Task<List<Manager>> managerTask = repo.GetAllManagersAsync();
-            return managerTask.Result;
+            Task<List<Manager>> managerTask;
+            try 
+            {
+                managerTask = repo.GetAllManagersAsync();
+                Log.Logger.Information($"Manager retrieval successful");
+                return managerTask.Result;
+            } catch (Exception e)
+            {
+                Log.Logger.Information($"Unable to get all managers {e.Message}");
+                return null;
+            }
+            
         }
     }
 }

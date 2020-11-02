@@ -14,7 +14,7 @@ namespace AdminUI.Menu
         //private IAdminRepo repo;
         private AdminService adminService;
         //private AdminService AdminService {get;set;}
-        private readonly string[] options = {"Create a brewery", "Get all Managers", "Exit"};
+        private readonly string[] options = {"Back", "Create a brewery", "Get all Managers"};
         private readonly string[] managerOptions = { "first name", "last name", 
         "email", "password"};
         private readonly string[] breweryOptions = {"name", "state", "city", "address", "zip"};  
@@ -37,31 +37,31 @@ namespace AdminUI.Menu
                 userInput = Console.ReadLine();
                 switch (userInput)
                 {
-                    //Create a brewery
+                        //Exit
                     case "0":
+                        break;
+                        //Create a brewery
+                    case "1":
                         string breweryId = Guid.NewGuid().ToString();
                         Brewery brewery = GetCreatedBrewery(breweryId);
                         Manager manager = GetCreatedManager(breweryId);
                         brewery.Manager = manager;
                         adminService.AddBrewery(brewery);
-                        //adminService.AddManager(manager);
+                       
                         break;
-                    //Get managers
-                    case "1":
+                        //Get managers
+                    case "2":
                         foreach(var mgr in adminService.GetAllManagers())
                         {
                             Console.WriteLine($"{mgr.FName} {mgr.LName}");
                         }
-                        break;
-                    //Exit
-                    case "2":
                         break;
                     default:
                         Console.WriteLine("Invalid Input");
                         break;
                 }
                 
-            }while(!(userInput.Equals((options.Length - 1).ToString())));
+            }while(!(userInput == "0"));
         }
 
         public Manager GetCreatedManager(string breweryId)

@@ -2,7 +2,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BrewCrewLib\BrewCrewLib.csproj" />
-    <ProjectReference Include="..\BrewCrewBL\BrewCrewBL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="2.10.0" />
   </ItemGroup>
   
   <PropertyGroup>
