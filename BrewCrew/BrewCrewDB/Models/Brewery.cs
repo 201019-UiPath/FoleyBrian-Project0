@@ -12,6 +12,7 @@ namespace BrewCrewDB.Models
         public string Address {get; set;}
         public string Zip {get;set;}
         public List<Beer> Beers {get;set;}
+        public List<Order> Orders{get;set;}
         public Manager Manager {get;set;}
 
         public void SetBrewery(Dictionary<string,object> dictionary) {

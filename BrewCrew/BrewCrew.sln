@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminUI", "AdminUI\AdminUI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerUI", "CustomerUI\CustomerUI.csproj", "{DC72E8F9-E352-48B5-9437-A7D2A0523D42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewCrew", "BrewCrewMain\BrewCrew.csproj", "{2E35D846-1FEA-475C-BA0A-045943E437AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewCrew", "BrewCrew\BrewCrew.csproj", "{2E35D846-1FEA-475C-BA0A-045943E437AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

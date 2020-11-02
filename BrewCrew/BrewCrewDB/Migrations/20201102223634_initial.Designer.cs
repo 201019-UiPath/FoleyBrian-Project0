@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BrewCrewDB.Migrations
 {
     [DbContext(typeof(BrewCrewContext))]
-    [Migration("20201102041644_initial")]
+    [Migration("20201102223634_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -150,6 +150,10 @@ namespace BrewCrewDB.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("BeerId");
+
+                    b.HasIndex("BreweryId");
+
                     b.HasIndex("CustomerID");
 
                     b.ToTable("Orders");
@@ -171,6 +175,14 @@ namespace BrewCrewDB.Migrations
 
             modelBuilder.Entity("BrewCrewDB.Models.Order", b =>
                 {
+                    b.HasOne("BrewCrewDB.Models.Beer", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("BeerId");
+
+                    b.HasOne("BrewCrewDB.Models.Brewery", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("BreweryId");
+
                     b.HasOne("BrewCrewDB.Models.Customer", null)
                         .WithMany("Order")
                         .HasForeignKey("CustomerID");

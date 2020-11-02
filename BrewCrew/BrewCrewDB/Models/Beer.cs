@@ -14,6 +14,7 @@ namespace BrewCrewDB.Models
         public string Keg {get; set;}
         public Brewery Brewery {get;set;}
         // "name", "abv", "ibu" "breweryId", "type"
+        public List<Order> Orders {get;set;}
         public void SetBeer(Dictionary<string, string> dictionary) 
         {
             this.ID = Guid.NewGuid().ToString();

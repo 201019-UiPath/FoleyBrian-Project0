@@ -34,6 +34,7 @@ namespace CustomerUI.Menu
                 Console.WriteLine($"What is your {customerOptions[i]}");
                 customerAnswers[customerOptions[i]] = Console.ReadLine();
                 Console.WriteLine($"\nConfirm {customerOptions[i]} : {customerAnswers[customerOptions[i]]}");
+                Console.ReadLine();
             }
             Customer customer = new Customer();
             customer.SetCustomer(customerAnswers);

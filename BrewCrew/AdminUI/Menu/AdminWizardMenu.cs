@@ -51,10 +51,13 @@ namespace AdminUI.Menu
                         break;
                         //Get managers
                     case "2":
+                        Console.WriteLine();
+                        Console.WriteLine("Here is a list of all managers:");
                         foreach(var mgr in adminService.GetAllManagers())
                         {
                             Console.WriteLine($"{mgr.FName} {mgr.LName}");
                         }
+                        Console.WriteLine();
                         break;
                     default:
                         Console.WriteLine("Invalid Input");
@@ -74,6 +77,7 @@ namespace AdminUI.Menu
             for(int i = 0; i < managerOptions.Length; i++) {
                 Console.WriteLine($"What is the managers {managerOptions[i]}");
                 managerAnswers[managerOptions[i]] = Console.ReadLine();
+                Console.WriteLine();
                 Console.WriteLine($"\nConfirm {managerOptions[i]} : {managerAnswers[managerOptions[i]]}");
             }
             Manager manager = new Manager();
@@ -91,6 +95,7 @@ namespace AdminUI.Menu
             for(int i = 0; i < breweryOptions.Length; i++) {
                  Console.WriteLine($"What is the brewery's {breweryOptions[i]}");
                 breweryAnswers[breweryOptions[i]] = Console.ReadLine();
+                Console.WriteLine();
                 Console.WriteLine($"\nConfirm {breweryOptions[i]} : {breweryAnswers[breweryOptions[i]]}");
             }
             Brewery brewery = new Brewery();

@@ -98,6 +98,18 @@ namespace BrewCrewDB.Migrations
                 {
                     table.PrimaryKey("PK_Orders", x => x.ID);
                     table.ForeignKey(
+                        name: "FK_Orders_Beers_BeerId",
+                        column: x => x.BeerId,
+                        principalTable: "Beers",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Orders_Breweries_BreweryId",
+                        column: x => x.BreweryId,
+                        principalTable: "Breweries",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Orders_Customers_CustomerID",
                         column: x => x.CustomerID,
                         principalTable: "Customers",
@@ -117,6 +129,16 @@ namespace BrewCrewDB.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Orders_BeerId",
+                table: "Orders",
+                column: "BeerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_BreweryId",
+                table: "Orders",
+                column: "BreweryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Orders_CustomerID",
                 table: "Orders",
                 column: "CustomerID");
@@ -125,19 +147,19 @@ namespace BrewCrewDB.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Beers");
-
-            migrationBuilder.DropTable(
                 name: "Managers");
 
             migrationBuilder.DropTable(
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Breweries");
+                name: "Beers");
 
             migrationBuilder.DropTable(
                 name: "Customers");
+
+            migrationBuilder.DropTable(
+                name: "Breweries");
         }
     }
 }
