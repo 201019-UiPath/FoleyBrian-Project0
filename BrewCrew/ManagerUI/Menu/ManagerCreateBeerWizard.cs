@@ -37,7 +37,6 @@ namespace ManagerUI.Menu
                 answers[option] = Console.ReadLine();
                 Console.WriteLine($"\nConfirm {option} : {answers[option]}");
             }
-
             Beer beer = new Beer();
             beer.SetBeer(answers);
             return beer;
