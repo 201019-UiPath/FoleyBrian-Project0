@@ -38,20 +38,12 @@ namespace BrewCrewDB.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<string>("OrderID")
-                        .HasColumnType("text");
-
-                    b.Property<string>("OrderId")
-                        .HasColumnType("text");
-
                     b.Property<string>("Type")
                         .HasColumnType("text");
 
                     b.HasKey("ID");
 
                     b.HasIndex("BreweryID");
-
-                    b.HasIndex("OrderID");
 
                     b.ToTable("Beers");
                 });
@@ -156,8 +148,6 @@ namespace BrewCrewDB.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("BreweryId");
-
                     b.HasIndex("CustomerID");
 
                     b.ToTable("Orders");
@@ -168,10 +158,6 @@ namespace BrewCrewDB.Migrations
                     b.HasOne("BrewCrewDB.Models.Brewery", "Brewery")
                         .WithMany("Beers")
                         .HasForeignKey("BreweryID");
-
-                    b.HasOne("BrewCrewDB.Models.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderID");
                 });
 
             modelBuilder.Entity("BrewCrewDB.Models.Manager", b =>
@@ -183,10 +169,6 @@ namespace BrewCrewDB.Migrations
 
             modelBuilder.Entity("BrewCrewDB.Models.Order", b =>
                 {
-                    b.HasOne("BrewCrewDB.Models.Brewery", null)
-                        .WithMany("Orders")
-                        .HasForeignKey("BreweryId");
-
                     b.HasOne("BrewCrewDB.Models.Customer", null)
                         .WithMany("Order")
                         .HasForeignKey("CustomerID");

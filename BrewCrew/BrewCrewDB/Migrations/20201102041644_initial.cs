@@ -38,6 +38,29 @@ namespace BrewCrewDB.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Beers",
+                columns: table => new
+                {
+                    ID = table.Column<string>(nullable: false),
+                    BreweryID = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Type = table.Column<string>(nullable: true),
+                    ABV = table.Column<string>(nullable: true),
+                    IBU = table.Column<string>(nullable: true),
+                    Keg = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Beers", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Beers_Breweries_BreweryID",
+                        column: x => x.BreweryID,
+                        principalTable: "Breweries",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Managers",
                 columns: table => new
                 {
@@ -75,46 +98,9 @@ namespace BrewCrewDB.Migrations
                 {
                     table.PrimaryKey("PK_Orders", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Orders_Breweries_BreweryId",
-                        column: x => x.BreweryId,
-                        principalTable: "Breweries",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_Orders_Customers_CustomerID",
                         column: x => x.CustomerID,
                         principalTable: "Customers",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Beers",
-                columns: table => new
-                {
-                    ID = table.Column<string>(nullable: false),
-                    BreweryID = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
-                    Type = table.Column<string>(nullable: true),
-                    ABV = table.Column<string>(nullable: true),
-                    IBU = table.Column<string>(nullable: true),
-                    Keg = table.Column<string>(nullable: true),
-                    OrderId = table.Column<string>(nullable: true),
-                    OrderID = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Beers", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Beers_Breweries_BreweryID",
-                        column: x => x.BreweryID,
-                        principalTable: "Breweries",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Beers_Orders_OrderID",
-                        column: x => x.OrderID,
-                        principalTable: "Orders",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -125,20 +111,10 @@ namespace BrewCrewDB.Migrations
                 column: "BreweryID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Beers_OrderID",
-                table: "Beers",
-                column: "OrderID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Managers_BreweryID",
                 table: "Managers",
                 column: "BreweryID",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orders_BreweryId",
-                table: "Orders",
-                column: "BreweryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_CustomerID",
