@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewCrewDB", "BrewCrewDB\Br
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewCrewLib", "BrewCrewLib\BrewCrewLib.csproj", "{B7674A9B-2518-417C-9B19-8AE20EBCA1B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewCrewTest", "BrewCrewTest\BrewCrewTest.csproj", "{B8E4DA0F-1CDF-4FB3-AE97-F6268CD7493E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerUI", "ManagerUI\ManagerUI.csproj", "{C15EE83A-8A62-4B9B-9DFC-46B1730B4407}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminUI", "AdminUI\AdminUI.csproj", "{6874E2CB-3226-4FD1-AB5E-F59BF8F1AC89}"
@@ -16,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerUI", "CustomerUI\CustomerUI.csproj", "{DC72E8F9-E352-48B5-9437-A7D2A0523D42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewCrew", "BrewCrew\BrewCrew.csproj", "{2E35D846-1FEA-475C-BA0A-045943E437AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewCrewTest", "BrewCrewTest\BrewCrewTest.csproj", "{CA1C8C14-A099-43DF-A607-C6DB532630A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -186,5 +186,17 @@ Global
 		{2E35D846-1FEA-475C-BA0A-045943E437AD}.Release|x64.Build.0 = Release|Any CPU
 		{2E35D846-1FEA-475C-BA0A-045943E437AD}.Release|x86.ActiveCfg = Release|Any CPU
 		{2E35D846-1FEA-475C-BA0A-045943E437AD}.Release|x86.Build.0 = Release|Any CPU
+		{CA1C8C14-A099-43DF-A607-C6DB532630A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA1C8C14-A099-43DF-A607-C6DB532630A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA1C8C14-A099-43DF-A607-C6DB532630A6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CA1C8C14-A099-43DF-A607-C6DB532630A6}.Debug|x64.Build.0 = Debug|Any CPU
+		{CA1C8C14-A099-43DF-A607-C6DB532630A6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CA1C8C14-A099-43DF-A607-C6DB532630A6}.Debug|x86.Build.0 = Debug|Any CPU
+		{CA1C8C14-A099-43DF-A607-C6DB532630A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA1C8C14-A099-43DF-A607-C6DB532630A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA1C8C14-A099-43DF-A607-C6DB532630A6}.Release|x64.ActiveCfg = Release|Any CPU
+		{CA1C8C14-A099-43DF-A607-C6DB532630A6}.Release|x64.Build.0 = Release|Any CPU
+		{CA1C8C14-A099-43DF-A607-C6DB532630A6}.Release|x86.ActiveCfg = Release|Any CPU
+		{CA1C8C14-A099-43DF-A607-C6DB532630A6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

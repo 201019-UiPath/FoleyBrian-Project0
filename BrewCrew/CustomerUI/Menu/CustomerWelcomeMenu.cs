@@ -22,7 +22,6 @@ namespace CustomerUI.Menu
             this.customerService = new CustomerService(repo);
             this.createUserWizard = new CustomerCreateUserWizard(repo);
             this.loginWizard = new CustomerLoginWizard(repo);
-            
         }
         public void Start() 
         {

@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace BrewCrewDB
 {
+    /// <summary>
+    /// Repository handling all Manager operations on the database
+    /// </summary>
     public interface IManagerRepo
     {
         //Beer Data

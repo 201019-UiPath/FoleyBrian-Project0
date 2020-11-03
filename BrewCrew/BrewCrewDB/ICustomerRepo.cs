@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace BrewCrewDB
 {
+    /// <summary>
+    /// Repository handling all Customer operations on the database
+    /// </summary>
     public interface ICustomerRepo
     {
         //Customer Data

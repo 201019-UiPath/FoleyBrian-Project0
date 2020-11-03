@@ -1,0 +1,21 @@
+2020-11-02 16:52:51.129 -07:00 [INF] Brewery Successfully Added
+2020-11-02 16:52:55.236 -07:00 [INF] Manager retrieval successful
+2020-11-02 16:53:12.973 -07:00 [INF] Successfully retrieved all breweries
+2020-11-02 16:53:59.239 -07:00 [INF] Successfully Added Beer to Inventory
+2020-11-02 16:54:17.362 -07:00 [INF] Successfully retrieved all beers by Brewery Id
+2020-11-02 16:54:20.952 -07:00 [INF] Successfully Updated Beer Data
+2020-11-02 16:54:44.933 -07:00 [INF] Successfully Retrieved Customer by Email
+2020-11-02 16:54:45.042 -07:00 [INF] Successfully Retrieved All Breweries
+2020-11-02 16:54:53.190 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-02 16:55:06.639 -07:00 [INF] Successfully Placed Order
+2020-11-02 16:55:06.863 -07:00 [INF] Successfully Updated Beer Data
+2020-11-02 16:55:24.866 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-02 16:55:35.349 -07:00 [INF] Successfully Placed Order
+2020-11-02 16:55:35.577 -07:00 [INF] Successfully Updated Beer Data
+2020-11-02 16:55:35.819 -07:00 [INF] Successfully Placed Order
+2020-11-02 16:55:36.039 -07:00 [INF] Successfully Updated Beer Data
+2020-11-02 16:55:36.266 -07:00 [INF] Successfully Placed Order
+2020-11-02 16:55:36.488 -07:00 [INF] Successfully Updated Beer Data
+2020-11-03 11:14:53.682 -07:00 [INF] Brewery Successfully Added
+2020-11-03 11:15:02.893 -07:00 [INF] Manager retrieval successful
+2020-11-03 11:15:14.879 -07:00 [INF] Successfully retrieved all breweries

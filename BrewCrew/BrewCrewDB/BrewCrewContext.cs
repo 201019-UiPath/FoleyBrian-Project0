@@ -13,6 +13,13 @@ namespace BrewCrewDB
         public DbSet<Brewery> Breweries {get;set;}
         public DbSet<Order> Orders{get;set;}
 
+        public BrewCrewContext(DbContextOptions<BrewCrewContext> options) : base(options) {
+        }
+
+        public BrewCrewContext()
+        {
+
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if(!(optionsBuilder.IsConfigured))
