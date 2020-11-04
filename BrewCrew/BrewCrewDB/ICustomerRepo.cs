@@ -9,20 +9,41 @@ namespace BrewCrewDB
     /// </summary>
     public interface ICustomerRepo
     {
-        //Customer Data
+         /// <summary>
+        /// Customer Data
+        /// </summary>
+        /// <param name="customer">Single customer is added to the DB</param>
         void AddCustomerAsync(Customer customer);
+
+        /// <param name="email">Single customer is returned matched on email</param>
         Customer GetUserByEmailAsync(string email);
 
-        //Order Data
+         /// <summary>
+        /// Order Data
+        /// </summary>
+        /// <param name="order">Order to add to DB</param>
         void PlaceOrderAsync(Order order);
-        void UpdateBeer(Beer beer);
-         Task<List<Order>> GetAllOrdersByCustomerBreweryIdAsync(string customerId, string breweryId);
+        
+        /// <param name="order" name="breweryId">List of orders returned matched on customerId and breweryId</param>
+        Task<List<Order>> GetAllOrdersByCustomerBreweryIdAsync(string customerId, string breweryId);
 
-        //Beer Data
+         /// <summary>
+        /// Beer Data
+        /// </summary>
+
+        /// <param name="Beer">Beer to be updated</param>
+        void UpdateBeer(Beer beer);
+
+        /// <param name="breweryId">List of beers is returned matched on brewery Id</param>
         Task<List<Beer>> GetAllBeersByBreweryIdAsync(string breweryId);
+
+        /// <param name="beerId">Single beer is returned matched on Beer Id</param>
         Task<Beer> GetBeerByIdAsync(string beerId);
 
-        //Brewery Data
+         /// <summary>
+        /// Brewery Data
+        /// </summary>
+        /// <returns>List of All Breweries in DB table returned</returns>
         Task<List<Brewery>> GetAllBreweriesAsync();
 
         

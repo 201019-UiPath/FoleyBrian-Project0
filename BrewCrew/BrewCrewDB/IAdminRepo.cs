@@ -9,15 +9,22 @@ namespace BrewCrewDB
     /// </summary>
     public interface IAdminRepo
     {
-        //Brewery Data
+        /// <summary>
+        /// Brewery Data
+        /// </summary>
+        /// <param name="brewery">brewery to add to DB</param>
         void AddBreweryAsync(Brewery brewery);
 
+        /// <returns>List of All Breweries in DB table returned</returns>
          Task<List<Brewery>> GetAllBreweriesAsync();
 
-         //Manager Data
-
+        /// <summary>
+        /// Manager Data
+        /// </summary>
+        /// <param name="manager">manager to add to DB</param>
         void AddManagerAsync(Manager manager);
 
+        /// <returns>List of All Managers in DB table returned</returns>
          Task<List<Manager>> GetAllManagersAsync();
     }
 }
