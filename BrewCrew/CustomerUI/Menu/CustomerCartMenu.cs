@@ -40,7 +40,7 @@ namespace CustomerUI.Menu
                    Console.WriteLine($"\tABV: {beer.ABV}");
                    Console.WriteLine($"\tIBU: {beer.IBU}");
                    Console.WriteLine($"\tKeg: {beer.Type}");
-                   Console.WriteLine($"\tABV: {beer.Keg}");
+                   //Console.WriteLine($"\tABV: {beer.Keg}");
                    Console.WriteLine();
                }
                 for(int i = 0; i < options.Length; i++)
@@ -65,27 +65,42 @@ namespace CustomerUI.Menu
         }
         private void PlaceOrder()
         {
+            Order order = new Order()
+            {
+                ID = Guid.NewGuid().ToString(),
+                UserID = CustomerId,
+                BreweryID = BreweryId,
+                Date = DateTime.Now,
+                TableNumber = CustomerCartMenu.TableNumber,
+                LineItems = new List<LineItems>(),
+                TotalPrice = (Beers.Count * 4).ToString()
+            };
             foreach(var beer in CustomerCartMenu.Beers)
             {
-                Dictionary<string,object> orderItems = new Dictionary<string, object>();
-                Order order = new Order();
-                orderItems["customerId"] = CustomerId;
-                orderItems["tableNumber"] = CustomerCartMenu.TableNumber;
-                orderItems["breweryId"] = BreweryId;
-                orderItems["orderId"] = order.ID;
-                orderItems["beerId"] = beer.ID;
-                order.SetOrder(orderItems);
-                customerService.PlaceOrder(order);
-                DecrementKeg(beer);
+                //Dictionary<string,object> orderItems = new Dictionary<string, object>();
+                LineItems lineItem = new LineItems() {
+                    ID = Guid.NewGuid().ToString(),
+                    OrderID = order.ID,
+                    BeerID = beer.ID,
+                };
+                // orderItems["customerId"] = CustomerId;
+                // orderItems["tableNumber"] = CustomerCartMenu.TableNumber;
+                // orderItems["breweryId"] = BreweryId;
+                // orderItems["orderId"] = order.ID;
+                // orderItems["beerId"] = beer.ID;
+                order.LineItems.Add(lineItem);
+                
+                //DecrementKeg(beer);
             }
+            customerService.PlaceOrder(order);
             CustomerCartMenu.Beers.Clear();
         }
 
-         private void DecrementKeg(Beer beer) {
-            int keg = int.Parse(beer.Keg);
-            keg -= 10;
-            beer.Keg = keg.ToString();
-            customerService.UpdateBeer(beer);
-        } 
+        //  private void DecrementKeg(Beer beer) {
+        //     int keg = int.Parse(beer.Keg);
+        //     keg -= 10;
+        //     beer.Keg = keg.ToString();
+        //     customerService.UpdateBeer(beer);
+        // } 
     }
 }

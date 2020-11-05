@@ -22,11 +22,11 @@ namespace CustomerUI.Menu
 
         public void Start()
         {
-            Customer customer = GetCreatedCustomer();
+            User customer = GetCreatedCustomer();
             customerService.AddCustomer(customer);
         }
 
-        public Customer GetCreatedCustomer()
+        public User GetCreatedCustomer()
         {
             Dictionary<string, object> customerAnswers = new Dictionary<string, object>();
             Console.WriteLine("\nGreat! Now lets enter some information about the manager\n");
@@ -34,10 +34,16 @@ namespace CustomerUI.Menu
                 Console.WriteLine($"What is your {customerOptions[i]}");
                 customerAnswers[customerOptions[i]] = Console.ReadLine();
                 Console.WriteLine($"\nConfirm {customerOptions[i]} : {customerAnswers[customerOptions[i]]}");
-                Console.ReadLine();
+                Console.WriteLine();
             }
-            Customer customer = new Customer();
-            customer.SetCustomer(customerAnswers);
+            User customer = new User(){
+                ID = Guid.NewGuid().ToString(),
+                FName = (string)customerAnswers["first name"],
+                LName = (string)customerAnswers["last name"],
+                Email = (string)customerAnswers["email"],
+                Password = (string)customerAnswers["password"]
+            };
+            //customer.SetCustomer(customerAnswers);
             return customer;
 
         }

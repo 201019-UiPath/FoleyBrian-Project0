@@ -10,7 +10,7 @@ namespace CustomerUI.Menu
     {
         private CustomerOrderMenu orderMenu;
         public string CustomerId {get;set;}
-        private List<Brewery> Breweries {get;set;}
+        public List<Brewery> Breweries {get;set;}
         private string UserInput {get;set;}
         private DBRepo repo;
         private CustomerService customerService;

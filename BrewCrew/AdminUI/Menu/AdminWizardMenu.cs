@@ -44,9 +44,15 @@ namespace AdminUI.Menu
                     case "1":
                         string breweryId = Guid.NewGuid().ToString();
                         Brewery brewery = GetCreatedBrewery(breweryId);
-                        Manager manager = GetCreatedManager(breweryId);
-                        brewery.Manager = manager;
-                        adminService.AddBrewery(brewery);
+                        User manager = GetCreatedManager(breweryId);
+                        ManagersJoint managers = new ManagersJoint(){
+                            ID = Guid.NewGuid().ToString(),
+                            BreweryID = brewery.ID,
+                            Brewery = brewery,
+                            User = manager
+                            
+                        };
+                        adminService.AddBreweryManager(managers);
                        
                         break;
                         //Get managers
@@ -67,7 +73,7 @@ namespace AdminUI.Menu
             }while(!(userInput == "0"));
         }
 
-        public Manager GetCreatedManager(string breweryId)
+        public User GetCreatedManager(string breweryId)
         {
             Dictionary<string, object> managerAnswers = new Dictionary<string, object>()
             {
@@ -77,11 +83,17 @@ namespace AdminUI.Menu
             for(int i = 0; i < managerOptions.Length; i++) {
                 Console.WriteLine($"What is the managers {managerOptions[i]}");
                 managerAnswers[managerOptions[i]] = Console.ReadLine();
-                Console.WriteLine();
                 Console.WriteLine($"\nConfirm {managerOptions[i]} : {managerAnswers[managerOptions[i]]}");
+                Console.WriteLine();
             }
-            Manager manager = new Manager();
-            manager.SetManager(managerAnswers);
+            User manager = new User() 
+            {
+                ID = Guid.NewGuid().ToString(),
+                FName = (string)managerAnswers["first name"],
+                LName = (string)managerAnswers["last name"],
+                Email = (string)managerAnswers["email"],
+                Password = (string)managerAnswers["password"]
+            };
             return manager;
 
         }
@@ -98,8 +110,15 @@ namespace AdminUI.Menu
                 Console.WriteLine();
                 Console.WriteLine($"\nConfirm {breweryOptions[i]} : {breweryAnswers[breweryOptions[i]]}");
             }
-            Brewery brewery = new Brewery();
-            brewery.SetBrewery(breweryAnswers);
+            Brewery brewery = new Brewery()
+            {
+                ID = Guid.NewGuid().ToString(),
+                Name = (string)breweryAnswers["name"],
+                State = (string)breweryAnswers["state"],
+                City = (string)breweryAnswers["city"],
+                Address = (string)breweryAnswers["address"],
+                Zip = (string)breweryAnswers["zip"],
+            };
             return brewery;
         }
     }

@@ -15,11 +15,11 @@ namespace BrewCrewLib
             this.repo = repo;
         }
 
-        public void AddManager(Manager manager)
+        public void AddBreweryManager(ManagersJoint manager)
         {
             try 
             {
-                repo.AddManagerAsync(manager);
+                repo.AddBreweryManagerAsync(manager);
             } catch(Exception e)
             {
                 Log.Information($"Unable to Add Manager Async {e.Message}");
@@ -28,21 +28,21 @@ namespace BrewCrewLib
             
         }
 
-        public void AddBrewery(Brewery brewery)
-        {
-            try
-            {
-                repo.AddBreweryAsync(brewery);
-            } catch (Exception e)
-            {
-                Log.Information($"Unable to Add Brewery {e.Message}");
-            }
-            Log.Information($"Brewery Successfully Added");
-        }
+        // public void AddBrewery(Brewery brewery)
+        // {
+        //     try
+        //     {
+        //         repo.AddBreweryAsync(brewery);
+        //     } catch (Exception e)
+        //     {
+        //         Log.Information($"Unable to Add Brewery {e.Message}");
+        //     }
+        //     Log.Information($"Brewery Successfully Added");
+        // }
 
-        public List<Manager> GetAllManagers()
+        public List<User> GetAllManagers()
         {
-            Task<List<Manager>> managerTask;
+            Task<List<User>> managerTask;
             try 
             {
                 managerTask = repo.GetAllManagersAsync();
@@ -51,7 +51,7 @@ namespace BrewCrewLib
             } catch (Exception e)
             {
                 Log.Information($"Unable to get all managers {e.Message}");
-                return new List<Manager>();
+                return new List<User>();
             }
             
         }

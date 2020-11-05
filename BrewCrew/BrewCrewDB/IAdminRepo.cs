@@ -13,7 +13,7 @@ namespace BrewCrewDB
         /// Brewery Data
         /// </summary>
         /// <param name="brewery">brewery to add to DB</param>
-        void AddBreweryAsync(Brewery brewery);
+        void AddBreweryManagerAsync(ManagersJoint manager);
 
         /// <returns>List of All Breweries in DB table returned</returns>
          Task<List<Brewery>> GetAllBreweriesAsync();
@@ -22,9 +22,9 @@ namespace BrewCrewDB
         /// Manager Data
         /// </summary>
         /// <param name="manager">manager to add to DB</param>
-        void AddManagerAsync(Manager manager);
+        void AddManagerAsync(User user);
 
         /// <returns>List of All Managers in DB table returned</returns>
-         Task<List<Manager>> GetAllManagersAsync();
+         Task<List<User>> GetAllManagersAsync();
     }
 }

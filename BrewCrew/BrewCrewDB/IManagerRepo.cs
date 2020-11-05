@@ -14,16 +14,16 @@ namespace BrewCrewDB
         /// </summary>
 
         /// <param name="Beer">Beer to add to DB</param>
-        void AddBeerAsync(Beer beer);
+        void AddBeerAsync(BeerItems beer);
 
         /// <param name="Beer">Beer to be updated</param>
         void UpdateBeer(Beer beer);
 
         /// <param name="breweryId">List of beers is returned matched on brewery Id</param>
-        Task<List<Beer>> GetAllBeersByBreweryIdAsync(string breweryId);
+        Task<List<BeerItems>> GetAllBeersByBreweryIdAsync(string breweryId);
 
         /// <param name="beerId">Single beer is returned matched on Beer Id</param>
-        Task<Beer> GetBeerByIdAsync(string beerId);
+        Beer GetBeerByIdAsync(string beerId);
 
         /// <summary>
         /// Brewery Data
@@ -41,7 +41,7 @@ namespace BrewCrewDB
         /// Customer Data
         /// </summary>
         /// <param name="customerId">Single customer is returned matched on customer Id</param>
-        Task<Customer> GetCustomerByIdAsync(string customerId);
+        User GetCustomerByIdAsync(string customerId);
 
     }
 }

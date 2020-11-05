@@ -64,8 +64,13 @@ namespace CustomerUI.Menu
 
             foreach(var order in orders)
             {
-                Beer beer = customerService.GetBeerById(order.BeerId);
-                data[order] = beer;
+                foreach(var lineitem in order.LineItems)
+                {
+                     Beer beer = customerService.GetBeerById(lineitem.BeerID);
+                     data[order] = beer;
+                }
+               
+                
             }
         }
 

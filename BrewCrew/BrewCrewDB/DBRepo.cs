@@ -18,21 +18,21 @@ namespace BrewCrewDB
         }
 
         //Manager Data
-        public void AddManagerAsync(Manager manager)
+        public void AddManagerAsync(User user)
         {
-            context.Managers.AddAsync(manager);
+            context.Users.AddAsync(user);
             context.SaveChangesAsync();
         }
 
-        public Task<List<Manager>> GetAllManagersAsync()
+        public Task<List<User>> GetAllManagersAsync()
         {
-            return context.Managers.Select(x => x).ToListAsync();
+            return context.Users.Where(x => x.Type == "Manager").ToListAsync();
         }
 
         //Brewery Data
-        public void AddBreweryAsync(Brewery brewery)
+        public void AddBreweryManagerAsync(ManagersJoint manager)
         {
-            context.Breweries.AddAsync(brewery);
+            context.Managers.AddAsync(manager);
             context.SaveChangesAsync();
         }
 
@@ -43,15 +43,15 @@ namespace BrewCrewDB
 
 
         //Beer Data
-        public void AddBeerAsync(Beer beer)
+        public void AddBeerAsync(BeerItems beer)
         {
-            context.Beers.AddAsync(beer);
+            context.BeerItems.AddAsync(beer);
             context.SaveChanges();
         }
 
-        public Task<List<Beer>> GetAllBeersByBreweryIdAsync(string breweryId)
+        public Task<List<BeerItems>> GetAllBeersByBreweryIdAsync(string breweryId)
         {
-            return context.Beers.Where(x => x.BreweryID == breweryId).ToListAsync();
+            return context.BeerItems.Where(x => x.BreweryID == breweryId).Include(b => b.Beer).ToListAsync();
         }
 
         public void UpdateBeer(Beer beer)
@@ -60,26 +60,26 @@ namespace BrewCrewDB
             context.SaveChanges();
         }
 
-        public Task<Beer> GetBeerByIdAsync(string beerId)
+        public Beer GetBeerByIdAsync(string beerId)
         {
-            return context.Beers.Where(x => x.ID == beerId).FirstAsync();
+            return context.Beers.Single(x => x.ID == beerId);
         }
 
         //Customer Data
-        public Task<Customer> GetCustomerByIdAsync(string customerId)
+        public User GetCustomerByIdAsync(string customerId)
         {
-            return context.Customers.Where(x => x.ID == customerId).FirstAsync();
+            return context.Users.Single(x => x.ID == customerId);
         }
 
-        public void AddCustomerAsync(Customer customer)
+        public void AddCustomerAsync(User user)
         {
-            context.Customers.AddAsync(customer);
+            context.Users.AddAsync(user);
             context.SaveChanges();
         }
 
-        public Customer GetUserByEmailAsync(string email)
+        public User GetUserByEmailAsync(string email)
         {
-            return context.Customers.Where(x => x.Email == email).FirstOrDefault();
+            return context.Users.Single(x => x.Email == email);
         }
 
 
@@ -92,12 +92,12 @@ namespace BrewCrewDB
 
         public Task<List<Order>> GetAllOrdersByBreweryIdAsync(string breweryId)
         {
-            return context.Orders.Where(x => x.BreweryId == breweryId).ToListAsync();
+            return context.Orders.Where(x => x.BreweryID == breweryId).ToListAsync();
         }
 
         public Task<List<Order>> GetAllOrdersByCustomerBreweryIdAsync(string customerId, string breweryId)
         {
-            return context.Orders.Where(x => x.CustomerID == customerId).Where(y => y.BreweryId == breweryId).ToListAsync();
+            return context.Orders.Where(x => x.UserID == customerId).Where(y => y.BreweryID == breweryId).Include("LineItems").ToListAsync();
         }
     }
 }

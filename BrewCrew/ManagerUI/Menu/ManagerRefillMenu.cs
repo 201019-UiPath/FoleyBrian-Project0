@@ -12,9 +12,11 @@ namespace ManagerUI.Menu
         private string UserInput {get;set;}
         private ManagerService managerService;
         private DBRepo repo;
-        private List<Beer> Beers {get;set;}
+        private List<BeerItems> BeerItems {get;set;}
         private string BreweryID {get;set;}
         private string BreweryName {get;set;}
+
+        private readonly string[] options = {"Back"};
 
         public ManagerRefillMenu(string breweryId, string breweryName, DBRepo repo) {
             this.BreweryID = breweryId;
@@ -26,11 +28,13 @@ namespace ManagerUI.Menu
             GetBeers();
             do
             {
-                Console.WriteLine("Select a keg to refill");
-                Console.WriteLine("[0] - Back");
-                for(int i = 1; i <= Beers.Count; i++) 
+                for(int i = 0; i < options.Length; i++)
                 {
-                    Console.WriteLine($"[{i}] - {Beers[i-1].Name} - {Beers[i-1].Keg}%");
+                    Console.WriteLine($"[{i}] - {options[i]}");
+                }
+                for(int i = 0; i <= BeerItems.Count; i++) 
+                {
+                    Console.WriteLine($"[{i+options.Length}] - {BeerItems[i].Beer.Name} - {BeerItems[i].Keg}%");
                 }
                 UserInput = Console.ReadLine();
                 switch (UserInput)
@@ -40,8 +44,9 @@ namespace ManagerUI.Menu
                     default:
                         try 
                         {
-                            Beer beer = Beers[int.Parse(UserInput)-1];
-                            RefillBeer(beer);
+                            BeerItems beeritem = BeerItems[int.Parse(UserInput) - options.Length];
+                            Beer beer = beeritem.Beer;
+                            //RefillBeer(beer);
                         } catch (Exception e)
                         {
                             Console.WriteLine(e.Message);
@@ -53,14 +58,14 @@ namespace ManagerUI.Menu
 
         private void GetBeers() 
         {
-            Beers = managerService.GetAllBeersByBreweryId(BreweryID);
+            BeerItems = managerService.GetAllBeersByBreweryId(BreweryID);
         }
 
         private void RefillBeer(Beer beer) {
-            int keg = int.Parse(beer.Keg);
-            keg += 10;
-            beer.Keg = keg.ToString();
-            managerService.UpdateBeer(beer);
+            // int keg = int.Parse(beer.Keg);
+            // keg += 10;
+            // beer.Keg = keg.ToString();
+            // managerService.UpdateBeer(beer);
         }        
     }
 }

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace BrewCrewDB.Models
 {
     public class User
@@ -7,5 +9,8 @@ namespace BrewCrewDB.Models
         public string LName {get; set;}
         public string Email{get; set;}
         public string Password{get; set;}
+        public string Type{get;set;}
+        public List<Order> Orders {get;set;}
+
     }
 }

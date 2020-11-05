@@ -46,7 +46,7 @@ namespace CustomerUI.Menu
         private bool HandleLogin()
         {
 
-            Customer user = customerService.GetUserByEmail(UserInput);
+            User user = customerService.GetUserByEmail(UserInput);
             if (user != null)
             {
                 Console.WriteLine("Successfully Logged in");

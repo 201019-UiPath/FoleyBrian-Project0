@@ -14,7 +14,7 @@ namespace BrewCrewLib
             this.repo = repo;
         }
 
-        public void AddBeer(Beer beer)
+        public void AddBeer(BeerItems beer)
         {
             try
             {
@@ -40,17 +40,17 @@ namespace BrewCrewLib
             
         }
 
-        public List<Beer> GetAllBeersByBreweryId(string breweryId)
+        public List<BeerItems> GetAllBeersByBreweryId(string breweryId)
         {
             try 
             {
-                List<Beer> beers = repo.GetAllBeersByBreweryIdAsync(breweryId).Result;
+                List<BeerItems> beers = repo.GetAllBeersByBreweryIdAsync(breweryId).Result;
                 Log.Information("Successfully retrieved all beers by Brewery Id");
                 return beers;
             }catch (Exception e)
             {
                 Log.Information($"Failed to retrieve all beers by brewery Id - {e.Message}");
-                return new List<Beer>();
+                return new List<BeerItems>();
             }
             
         }
@@ -84,7 +84,7 @@ namespace BrewCrewLib
         {
             try 
             {
-                Beer beer = repo.GetBeerByIdAsync(beerId).Result;
+                Beer beer = repo.GetBeerByIdAsync(beerId);
                 Log.Information("Successfully retrieved Beer by beer Id");
                 return beer;
             } catch (Exception e)
@@ -95,17 +95,17 @@ namespace BrewCrewLib
             
         }
 
-        public Customer GetCustomerById(string customerId)
+        public User GetCustomerById(string customerId)
         {
             try 
             {
-                Customer customer = repo.GetCustomerByIdAsync(customerId).Result;
+                User customer = repo.GetCustomerByIdAsync(customerId);
                 Log.Information("Successfully retrieved customer by customer Id");
                 return customer;
             } catch(Exception e)
             {
                 Log.Information($"Failed to retrieve customer By customer Id - {e.Message}");
-                return new Customer();
+                return new User();
             }
             
         }

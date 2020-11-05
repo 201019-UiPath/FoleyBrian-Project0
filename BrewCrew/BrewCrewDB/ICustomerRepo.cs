@@ -13,10 +13,10 @@ namespace BrewCrewDB
         /// Customer Data
         /// </summary>
         /// <param name="customer">Single customer is added to the DB</param>
-        void AddCustomerAsync(Customer customer);
+        void AddCustomerAsync(User user);
 
         /// <param name="email">Single customer is returned matched on email</param>
-        Customer GetUserByEmailAsync(string email);
+        User GetUserByEmailAsync(string email);
 
          /// <summary>
         /// Order Data
@@ -35,10 +35,10 @@ namespace BrewCrewDB
         void UpdateBeer(Beer beer);
 
         /// <param name="breweryId">List of beers is returned matched on brewery Id</param>
-        Task<List<Beer>> GetAllBeersByBreweryIdAsync(string breweryId);
+        Task<List<BeerItems>> GetAllBeersByBreweryIdAsync(string breweryId);
 
         /// <param name="beerId">Single beer is returned matched on Beer Id</param>
-        Task<Beer> GetBeerByIdAsync(string beerId);
+        Beer GetBeerByIdAsync(string beerId);
 
          /// <summary>
         /// Brewery Data

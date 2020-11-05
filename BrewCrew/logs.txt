@@ -19,3 +19,140 @@
 2020-11-03 11:14:53.682 -07:00 [INF] Brewery Successfully Added
 2020-11-03 11:15:02.893 -07:00 [INF] Manager retrieval successful
 2020-11-03 11:15:14.879 -07:00 [INF] Successfully retrieved all breweries
+2020-11-03 19:36:37.380 -07:00 [INF] Brewery Successfully Added
+2020-11-03 19:37:57.231 -07:00 [INF] Brewery Successfully Added
+2020-11-03 19:38:15.818 -07:00 [INF] Manager retrieval successful
+2020-11-03 19:38:23.283 -07:00 [INF] Successfully retrieved all breweries
+2020-11-03 19:38:55.639 -07:00 [INF] Successfully Added Beer to Inventory
+2020-11-03 19:41:24.946 -07:00 [INF] Successfully Added Beer to Inventory
+2020-11-03 19:41:54.570 -07:00 [INF] Successfully Added Beer to Inventory
+2020-11-03 19:44:06.563 -07:00 [INF] Successfully Added Customer
+2020-11-03 19:44:19.485 -07:00 [INF] Successfully retrieved all breweries
+2020-11-03 19:45:23.007 -07:00 [INF] Successfully Added Beer to Inventory
+2020-11-03 19:45:49.039 -07:00 [INF] Successfully Added Beer to Inventory
+2020-11-03 19:46:12.581 -07:00 [INF] Successfully Added Beer to Inventory
+2020-11-03 19:46:40.746 -07:00 [INF] Successfully Retrieved Customer by Email
+2020-11-03 19:46:40.895 -07:00 [INF] Successfully Retrieved All Breweries
+2020-11-03 19:46:46.795 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-03 19:47:06.244 -07:00 [INF] Successfully Placed Order
+2020-11-03 19:47:06.471 -07:00 [INF] Successfully Updated Beer Data
+2020-11-03 19:47:06.690 -07:00 [INF] Successfully Placed Order
+2020-11-03 19:47:06.920 -07:00 [INF] Successfully Updated Beer Data
+2020-11-03 19:47:16.021 -07:00 [INF] Successfully Retrieved All Orders by Customer and Brewery Id
+2020-11-03 19:47:16.136 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-03 19:47:16.250 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-04 09:46:18.119 -07:00 [INF] Successfully Retrieved Customer by Email
+2020-11-04 09:46:32.972 -07:00 [INF] Successfully Retrieved Customer by Email
+2020-11-04 09:46:33.126 -07:00 [INF] Successfully Retrieved All Breweries
+2020-11-04 09:47:04.462 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-04 09:47:16.851 -07:00 [INF] Successfully Placed Order
+2020-11-04 09:47:17.081 -07:00 [INF] Successfully Updated Beer Data
+2020-11-04 09:47:21.940 -07:00 [INF] Successfully Retrieved All Orders by Customer and Brewery Id
+2020-11-04 09:47:22.061 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-04 09:47:22.175 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-04 09:47:22.293 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-04 09:47:32.752 -07:00 [INF] Successfully Retrieved All Orders by Customer and Brewery Id
+2020-11-04 09:47:32.870 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-04 09:47:32.977 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-04 09:47:33.086 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-04 09:47:49.243 -07:00 [INF] Successfully Placed Order
+2020-11-04 09:47:49.479 -07:00 [INF] Successfully Updated Beer Data
+2020-11-04 09:47:49.702 -07:00 [INF] Successfully Placed Order
+2020-11-04 09:47:49.939 -07:00 [INF] Successfully Updated Beer Data
+2020-11-04 09:47:58.002 -07:00 [INF] Successfully Retrieved All Orders by Customer and Brewery Id
+2020-11-04 09:47:58.112 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-04 09:47:58.222 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-04 09:47:58.328 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-04 09:47:58.441 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-04 09:47:58.549 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-04 09:48:37.331 -07:00 [INF] Successfully retrieved all breweries
+2020-11-04 09:49:06.311 -07:00 [INF] Successfully retrieved all orders by brewery Id
+2020-11-04 09:49:06.433 -07:00 [INF] Successfully retrieved Beer by beer Id
+2020-11-04 09:49:06.542 -07:00 [INF] Successfully retrieved Beer by beer Id
+2020-11-04 09:49:06.649 -07:00 [INF] Successfully retrieved Beer by beer Id
+2020-11-04 09:49:06.756 -07:00 [INF] Successfully retrieved Beer by beer Id
+2020-11-04 09:49:06.865 -07:00 [INF] Successfully retrieved Beer by beer Id
+2020-11-04 09:49:35.210 -07:00 [INF] Successfully retrieved all beers by Brewery Id
+2020-11-04 09:49:37.741 -07:00 [INF] Successfully Updated Beer Data
+2020-11-04 09:49:40.534 -07:00 [INF] Successfully Updated Beer Data
+2020-11-05 11:49:32.880 -07:00 [INF] Manager Successfully Added
+2020-11-05 12:06:10.948 -07:00 [INF] Manager Successfully Added
+2020-11-05 12:10:50.128 -07:00 [INF] Successfully retrieved all breweries
+2020-11-05 12:11:14.258 -07:00 [INF] Successfully Added Beer to Inventory
+2020-11-05 12:11:45.416 -07:00 [INF] Successfully Added Beer to Inventory
+2020-11-05 12:11:54.973 -07:00 [INF] Failed to retrieve all beers by brewery Id - One or more errors occurred. (Invalid include path: 'Beers' - couldn't find navigation for: 'Beers')
+2020-11-05 12:32:25.436 -07:00 [INF] Successfully retrieved all breweries
+2020-11-05 12:32:40.866 -07:00 [INF] Successfully Added Beer to Inventory
+2020-11-05 12:32:42.778 -07:00 [INF] Failed to retrieve all beers by brewery Id - One or more errors occurred. (Invalid include path: 'Beers' - couldn't find navigation for: 'Beers')
+2020-11-05 12:32:48.818 -07:00 [INF] Failed to retrieve all beers by brewery Id - One or more errors occurred. (Invalid include path: 'Beers' - couldn't find navigation for: 'Beers')
+2020-11-05 12:48:29.498 -07:00 [INF] Successfully retrieved all breweries
+2020-11-05 12:50:15.269 -07:00 [INF] Successfully retrieved all breweries
+2020-11-05 13:03:17.969 -07:00 [INF] Successfully retrieved all breweries
+2020-11-05 13:03:22.898 -07:00 [INF] Failed to retrieve all beers by brewery Id - One or more errors occurred. (Invalid include path: 'BeerItems.Beer' - couldn't find navigation for: 'BeerItems')
+2020-11-05 13:21:16.754 -07:00 [INF] Successfully retrieved all breweries
+2020-11-05 13:21:23.266 -07:00 [INF] Successfully retrieved all beers by Brewery Id
+2020-11-05 15:21:33.659 -07:00 [INF] Successfully Added Customer
+2020-11-05 15:21:41.464 -07:00 [INF] Successfully Retrieved Customer by Email
+2020-11-05 15:21:41.610 -07:00 [INF] Successfully Retrieved All Breweries
+2020-11-05 15:21:46.521 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-05 15:25:50.957 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-05 15:27:15.312 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-05 15:28:22.853 -07:00 [INF] Successfully Retrieved Customer by Email
+2020-11-05 15:28:23.004 -07:00 [INF] Successfully Retrieved All Breweries
+2020-11-05 15:28:28.097 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-05 15:29:03.572 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-05 15:31:14.466 -07:00 [INF] Successfully Retrieved Customer by Email
+2020-11-05 15:31:14.616 -07:00 [INF] Successfully Retrieved All Breweries
+2020-11-05 15:31:19.023 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-05 15:32:01.576 -07:00 [INF] Successfully Placed Order
+2020-11-05 15:40:04.763 -07:00 [INF] Successfully Retrieved Customer by Email
+2020-11-05 15:40:04.909 -07:00 [INF] Successfully Retrieved All Breweries
+2020-11-05 15:40:08.843 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-05 15:40:11.904 -07:00 [INF] Failed to retrieve all orders by Customer and Brewery Id - One or more errors occurred. (42703: column o.Quantity does not exist)
+2020-11-05 15:41:31.394 -07:00 [INF] Successfully Retrieved Customer by Email
+2020-11-05 15:41:31.541 -07:00 [INF] Successfully Retrieved All Breweries
+2020-11-05 15:41:34.249 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-05 15:41:37.586 -07:00 [INF] Successfully Retrieved All Orders by Customer and Brewery Id
+2020-11-05 15:41:37.706 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:41:50.572 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-05 15:42:01.265 -07:00 [INF] Successfully Placed Order
+2020-11-05 15:42:05.436 -07:00 [INF] Successfully Retrieved All Orders by Customer and Brewery Id
+2020-11-05 15:42:05.541 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:42:05.664 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:42:05.767 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:42:05.874 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:42:05.979 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:44:00.678 -07:00 [INF] Successfully retrieved all breweries
+2020-11-05 15:44:16.430 -07:00 [INF] Successfully Added Beer to Inventory
+2020-11-05 15:44:35.037 -07:00 [INF] Successfully Added Beer to Inventory
+2020-11-05 15:44:52.698 -07:00 [INF] Successfully Retrieved Customer by Email
+2020-11-05 15:44:52.802 -07:00 [INF] Successfully Retrieved All Breweries
+2020-11-05 15:44:56.202 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-05 15:45:11.693 -07:00 [INF] Successfully Placed Order
+2020-11-05 15:45:31.797 -07:00 [INF] Successfully Retrieved All Orders by Customer and Brewery Id
+2020-11-05 15:45:31.924 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:45:32.030 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:45:32.140 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:45:32.252 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:45:32.361 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:45:32.474 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:45:32.581 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:13.808 -07:00 [INF] Successfully Retrieved Customer by Email
+2020-11-05 15:49:13.956 -07:00 [INF] Successfully Retrieved All Breweries
+2020-11-05 15:49:16.728 -07:00 [INF] Successfully Retrieved All Beers By Brewery Id
+2020-11-05 15:49:21.400 -07:00 [INF] Successfully Retrieved All Orders by Customer and Brewery Id
+2020-11-05 15:49:21.523 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:21.629 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:21.737 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:21.850 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:21.958 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:22.070 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:22.200 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:54.367 -07:00 [INF] Successfully Retrieved All Orders by Customer and Brewery Id
+2020-11-05 15:49:54.484 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:54.598 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:54.712 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:54.822 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:54.934 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:55.043 -07:00 [INF] Successfully Retrieved Beer by Id
+2020-11-05 15:49:55.150 -07:00 [INF] Successfully Retrieved Beer by Id

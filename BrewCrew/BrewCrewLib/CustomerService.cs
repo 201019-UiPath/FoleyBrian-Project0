@@ -14,7 +14,7 @@ namespace BrewCrewLib
             this.repo = repo;
         }
 
-        public void AddCustomer(Customer customer)
+        public void AddCustomer(User customer)
         {
             try 
             {
@@ -39,16 +39,16 @@ namespace BrewCrewLib
             
         }
         
-        public Customer GetUserByEmail(string email)
+        public User GetUserByEmail(string email)
         {
             try {
-                Customer customer = repo.GetUserByEmailAsync(email);
+                User customer = repo.GetUserByEmailAsync(email);
                 Log.Information("Successfully Retrieved Customer by Email");
                 return customer;
             }catch(Exception e)
             {
                 Log.Information($"Failed to retrieve customer by email - {e.Message}");
-                return new Customer();
+                return new User();
             }
             
         }
@@ -68,16 +68,16 @@ namespace BrewCrewLib
             
         }
 
-        public List<Beer> GetAllBeersByBreweryId(string breweryId)
+        public List<BeerItems> GetAllBeersByBreweryId(string breweryId)
         {
             try {
-                List<Beer> beers = repo.GetAllBeersByBreweryIdAsync(breweryId).Result;
+                List<BeerItems> beers = repo.GetAllBeersByBreweryIdAsync(breweryId).Result;
                 Log.Information("Successfully Retrieved All Beers By Brewery Id");
                 return beers;
             } catch (Exception e)
             {
                 Log.Information($"Failed to retrieve all beers by brewery Id - {e.Message}");
-                return new List<Beer>();
+                return new List<BeerItems>();
             }
             
         }
@@ -101,7 +101,7 @@ namespace BrewCrewLib
         {
             try 
             {
-                Beer beer = repo.GetBeerByIdAsync(beerId).Result;
+                Beer beer = repo.GetBeerByIdAsync(beerId);
                 Log.Information("Successfully Retrieved Beer by Id");
                 return beer;
             }catch (Exception e)

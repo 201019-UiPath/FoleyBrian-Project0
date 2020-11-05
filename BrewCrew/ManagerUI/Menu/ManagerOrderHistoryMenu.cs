@@ -65,8 +65,13 @@ namespace ManagerUI.Menu
 
             foreach(var order in orders)
             {
-                Beer beer = managerService.GetBeerById(order.BeerId);
-                data[order] = beer;
+                foreach(var lineitem in order.LineItems)
+                {
+                     Beer beer = managerService.GetBeerById(lineitem.BeerID);
+                     data[order] = beer;
+                }
+               
+                
             }
         }
 

@@ -13,7 +13,7 @@ namespace ManagerUI.Menu
         private ManagerService managerService;
         private string BreweryID {get; set;}
         private string BreweryName {get;set;}
-        private readonly string[] beerDescriptionOptions = {"name", "abv", "ibu", "type"};
+        private readonly string[] beerDescriptionOptions = {"name", "abv", "ibu", "type", "price"};
 
         public ManagerCreateBeerWizard(string breweryId, string breweryName, DBRepo repo) {
             this.BreweryID = breweryId;
@@ -24,7 +24,14 @@ namespace ManagerUI.Menu
 
         public void Start() {
             Beer beer = GetCreatedBeer();
-            managerService.AddBeer(beer);
+            BeerItems beerItem = new BeerItems {
+                ID = Guid.NewGuid().ToString(),
+                BreweryID = this.BreweryID,
+                BeerID = beer.ID,
+                Beer = beer,
+                Keg = "50"
+            };
+            managerService.AddBeer(beerItem);
         }
 
         public Beer GetCreatedBeer()
@@ -38,8 +45,14 @@ namespace ManagerUI.Menu
                 Console.WriteLine($"\nConfirm {option} : {answers[option]}");
                 Console.WriteLine();
             }
-            Beer beer = new Beer();
-            beer.SetBeer(answers);
+            Beer beer = new Beer() {
+                ID = Guid.NewGuid().ToString(),
+                Name = (string)answers["name"],
+                ABV = (string)answers["abv"],
+                IBU = (string)answers["ibu"],
+                Type = (string)answers["type"],
+                Price = (string)answers["price"]
+            };
             return beer;
         }
     }

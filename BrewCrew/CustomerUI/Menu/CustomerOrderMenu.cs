@@ -14,7 +14,7 @@ namespace CustomerUI.Menu
         DBRepo repo;
         CustomerService customerService;
         private CustomerCartMenu cartMenu;
-        private List<Beer> Beers {get;set;}
+        private List<BeerItems> BeerItems {get;set;}
          private readonly string[] options = {"Back", "View Cart", "View Order History"};
         public string BreweryID {get;set;}
         public string BreweryName {get;set;}
@@ -35,9 +35,9 @@ namespace CustomerUI.Menu
                 {
                     Console.WriteLine($"[{i}] - {options[i]}");
                 }
-                for(int i = 0; i < Beers.Count; i++) 
+                for(int i = 0; i < BeerItems.Count; i++) 
                 {
-                    Console.WriteLine($"[{i+(options.Length)}] - {Beers[i].Name} - {Beers[i].Keg}%");
+                    Console.WriteLine($"[{i+(options.Length)}] - {BeerItems[i].Beer.Name} {BeerItems[i].Keg}%");
                 }
                 UserInput = Console.ReadLine();
                 switch (UserInput)
@@ -58,8 +58,8 @@ namespace CustomerUI.Menu
                     default:
                         try 
                         {
-                            Beer beer = Beers[int.Parse(UserInput) - options.Length];
-                            orderConfirm.Beer = beer;
+                            BeerItems beeritem = BeerItems[int.Parse(UserInput) - options.Length];
+                            orderConfirm.Beer = beeritem.Beer;
                             orderConfirm.Start();
                         } catch (Exception e)
                         {
@@ -74,7 +74,7 @@ namespace CustomerUI.Menu
 
         private void GetBeers() 
         {
-             Beers = customerService.GetAllBeersByBreweryId(BreweryID);
+            BeerItems = customerService.GetAllBeersByBreweryId(BreweryID);
         }
     }
 }
