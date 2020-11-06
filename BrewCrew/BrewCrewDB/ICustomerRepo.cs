@@ -46,6 +46,9 @@ namespace BrewCrewDB
         /// <returns>List of All Breweries in DB table returned</returns>
         Task<List<Brewery>> GetAllBreweriesAsync();
 
+        //NEW ITEMS
+        void DeleteCustomerById(string customerId);
+
         
 
        

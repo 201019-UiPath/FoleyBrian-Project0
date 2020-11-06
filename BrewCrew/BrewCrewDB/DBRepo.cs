@@ -26,7 +26,7 @@ namespace BrewCrewDB
 
         public Task<List<User>> GetAllManagersAsync()
         {
-            return context.Users.Where(x => x.Type == "Manager").ToListAsync();
+            return context.Users.Where(x => x.Type == "manager").ToListAsync();
         }
 
         //Brewery Data
@@ -98,6 +98,36 @@ namespace BrewCrewDB
         public Task<List<Order>> GetAllOrdersByCustomerBreweryIdAsync(string customerId, string breweryId)
         {
             return context.Orders.Where(x => x.UserID == customerId).Where(y => y.BreweryID == breweryId).Include("LineItems").ToListAsync();
+        }
+
+
+        //NEW ITEMS
+        public Brewery GetBreweryById(string breweryId)
+        {
+            return context.Breweries.Single(x => x.ID == breweryId);
+        }
+
+        public void DeleteBreweryById(string breweryId)
+        {
+            Brewery brewery = new Brewery() {ID = breweryId};
+            context.Breweries.Attach(brewery);
+            context.Breweries.Remove(brewery);
+            context.SaveChanges();
+        }
+        public void DeleteManagerById(string managerId)
+        {
+            User manager = new User() {ID = managerId};
+            context.Users.Attach(manager);
+            context.Users.Remove(manager);
+            context.SaveChanges();
+        }
+
+        public void DeleteCustomerById(string customerId)
+        {
+            User customer = new User() {ID = customerId};
+            context.Users.Attach(customer);
+            context.Users.Remove(customer);
+            context.SaveChanges();
         }
     }
 }

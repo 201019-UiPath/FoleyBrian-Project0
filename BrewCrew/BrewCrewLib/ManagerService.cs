@@ -111,5 +111,33 @@ namespace BrewCrewLib
         }
 
 
+        //NEW ITEMS
+        public void DeleteManagerById(string managerId)
+        {
+            try 
+            {
+                repo.DeleteManagerById(managerId);
+                Log.Information($"Manager Successfully removed");
+            } catch(Exception e)
+            {
+                Log.Information($"Unable to Delete Manager {e.Message}");
+            }
+            
+            
+        }
+
+         public void AddManager(User manager)
+        {
+            try
+            {
+                repo.AddManagerAsync(manager);
+                Log.Information("Successfully Added Manager to Inventory");
+            }catch(Exception e)
+            {
+                Log.Information($"Failed to add Manager to Inventory - {e.Message}");
+            }
+        }
+
+
     }
 }

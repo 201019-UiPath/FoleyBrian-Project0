@@ -28,18 +28,6 @@ namespace BrewCrewLib
             
         }
 
-        // public void AddBrewery(Brewery brewery)
-        // {
-        //     try
-        //     {
-        //         repo.AddBreweryAsync(brewery);
-        //     } catch (Exception e)
-        //     {
-        //         Log.Information($"Unable to Add Brewery {e.Message}");
-        //     }
-        //     Log.Information($"Brewery Successfully Added");
-        // }
-
         public List<User> GetAllManagers()
         {
             Task<List<User>> managerTask;
@@ -54,6 +42,64 @@ namespace BrewCrewLib
                 return new List<User>();
             }
             
+        }
+
+        //NEW ITEMS
+
+        public List<Brewery> GetAllBreweries()
+        {
+            Task<List<Brewery>> breweryTask;
+            try 
+            {
+                breweryTask = repo.GetAllBreweriesAsync();
+                Log.Information($"Brewery retrieval successful");
+                return breweryTask.Result;
+            } catch (Exception e)
+            {
+                Log.Information($"Unable to get all Breweries {e.Message}");
+                return new List<Brewery>();
+            }
+            
+        }
+
+        public Brewery GetBrewerybyId(string breweryId)
+        {
+            try {
+                Brewery brewery = repo.GetBreweryById(breweryId);
+                Log.Information($"Successfully retrieved Brewery with id {breweryId}");
+                return brewery;
+            }catch(Exception e)
+            {
+                Log.Information($"Failed to retrieve brewery with Id{breweryId} - {e.Message}");
+                return new Brewery();
+            }
+            
+        }
+
+        public void DeleteBreweryById(string breweryId)
+        {
+            try 
+            {
+                repo.DeleteBreweryById(breweryId);
+                Log.Information($"Brewery Successfully Removed");
+            } catch(Exception e)
+            {
+                Log.Information($"Unable to Delete Brewery {e.Message}");
+            }
+            
+            
+        }
+
+        public void DeleteManagerById(string managerId)
+        {
+            try 
+            {
+                repo.DeleteManagerById(managerId);
+                Log.Information($"Manager Successfully Removed");
+            } catch(Exception e)
+            {
+                Log.Information($"Unable to remove customer{e.Message}");
+            }   
         }
     }
 }

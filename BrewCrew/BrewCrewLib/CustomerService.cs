@@ -124,5 +124,20 @@ namespace BrewCrewLib
             }
             
         }
+
+        //NEW ITEMS
+
+        public void DeleteCustomerById(string customerId)
+        {
+            try 
+            {
+                repo.DeleteCustomerById(customerId);
+                Log.Information("Successfully removed customer");
+            }catch(Exception e)
+            {
+                Log.Information($"Failed to remove customer - {e.Message}");
+            }
+            
+        }
     }
 }

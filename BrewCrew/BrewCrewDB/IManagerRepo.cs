@@ -43,5 +43,10 @@ namespace BrewCrewDB
         /// <param name="customerId">Single customer is returned matched on customer Id</param>
         User GetCustomerByIdAsync(string customerId);
 
+        //NEW ITEMS
+        void DeleteManagerById(string managerId);
+
+        void AddManagerAsync(User manager);
+
     }
 }

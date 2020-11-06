@@ -23,12 +23,12 @@ namespace CustomerUI.Menu
         public void Start()
         {
             GetOrders();
-            foreach(var option in data)
-            {
-                Order order = option.Key;
-                Beer beer = option.Value;
-                Console.WriteLine($"{order.Date} Name: {beer.Name} ABV: {beer.ABV}% IBUs: {beer.IBU}\n");
-            }
+            // foreach(var option in data)
+            // {
+            //     Order order = option.Key;
+            //     Beer beer = option.Value;
+            //     Console.WriteLine($"{order.Date} Name: {beer.Name} ABV: {beer.ABV}% IBUs: {beer.IBU}\n");
+            // }
             do{
                 for(int i = 0; i < options.Length; i++)
                 {
@@ -64,10 +64,12 @@ namespace CustomerUI.Menu
 
             foreach(var order in orders)
             {
+                Console.WriteLine($"DATE: {order.Date}");
                 foreach(var lineitem in order.LineItems)
                 {
-                     Beer beer = customerService.GetBeerById(lineitem.BeerID);
-                     data[order] = beer;
+                    Console.WriteLine($"{lineitem.Beer.Name} - {lineitem.Beer.ABV}");
+                    //  Beer beer = customerService.GetBeerById(lineitem.BeerID);
+                    //  data[order] = beer;
                 }
                
                 

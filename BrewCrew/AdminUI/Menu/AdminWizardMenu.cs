@@ -92,7 +92,8 @@ namespace AdminUI.Menu
                 FName = (string)managerAnswers["first name"],
                 LName = (string)managerAnswers["last name"],
                 Email = (string)managerAnswers["email"],
-                Password = (string)managerAnswers["password"]
+                Password = (string)managerAnswers["password"],
+                Type = "manager"
             };
             return manager;
 

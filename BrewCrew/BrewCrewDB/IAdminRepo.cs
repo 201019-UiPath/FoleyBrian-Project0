@@ -25,6 +25,12 @@ namespace BrewCrewDB
         void AddManagerAsync(User user);
 
         /// <returns>List of All Managers in DB table returned</returns>
-         Task<List<User>> GetAllManagersAsync();
+        Task<List<User>> GetAllManagersAsync();
+
+        ///NEW ITEMS
+        Brewery GetBreweryById(string breweryId);
+        void DeleteBreweryById(string breweryId);
+        void DeleteManagerById(string managerId);
+ 
     }
 }
